@@ -1,4 +1,9 @@
+
+
 # You Only Look One-level Feature (YOLOF), CVPR2021
+
+在[Colab](https://colab.research.google.com/github/tiaoteek/YOLOFtest/blob/master/YOLOF.ipynb)中打开
+
 A simple, fast, and efficient object detector **without** FPN.
 
 - This repo provides a neat implementation for YOLOF based on Detectron2. A [`cvpods`](https://github.com/Megvii-BaseDetection/cvpods) version can be 
@@ -43,7 +48,6 @@ A simple, fast, and efficient object detector **without** FPN.
   ```
 - Note that there might be API changes in future detectron2 releases that 
 make the code incompatible.
-  
 ## Main results
 
 The models listed below can be found in [this onedrive link](https://1drv.ms/u/s!AgM0VtBH3kV9imGxZX3n_TMQGtbP?e=YMgpGJ) or in the [BaiduCloud link](https://pan.baidu.com/s/1BSOncRYq6HeCQ8q2hrWowA) with code `qr6o`. 
