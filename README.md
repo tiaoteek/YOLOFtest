@@ -1,8 +1,4 @@
-
-
 # You Only Look One-level Feature (YOLOF), CVPR2021
-
-在[Colab](https://colab.research.google.com/github/tiaoteek/YOLOFtest/blob/master/YOLOF.ipynb)中打开
 
 A simple, fast, and efficient object detector **without** FPN.
 
