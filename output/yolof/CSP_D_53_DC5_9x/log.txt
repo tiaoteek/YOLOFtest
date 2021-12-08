@@ -1,0 +1,1191 @@
+[12/08 04:46:20] detectron2 INFO: Rank of current process: 0. World size: 1
+[12/08 04:46:21] detectron2 INFO: Environment info:
+----------------------  ----------------------------------------------------------------
+sys.platform            linux
+Python                  3.7.12 (default, Sep 10 2021, 00:21:48) [GCC 7.5.0]
+numpy                   1.19.5
+detectron2              0.6 @/usr/local/lib/python3.7/dist-packages/detectron2
+Compiler                GCC 7.3
+CUDA compiler           CUDA 11.1
+detectron2 arch flags   3.7, 5.0, 5.2, 6.0, 6.1, 7.0, 7.5, 8.0, 8.6
+DETECTRON2_ENV_MODULE   <not set>
+PyTorch                 1.10.0+cu111 @/usr/local/lib/python3.7/dist-packages/torch
+PyTorch debug build     False
+GPU available           Yes
+GPU 0                   Tesla K80 (arch=3.7)
+Driver version          460.32.03
+CUDA_HOME               /usr/local/cuda
+Pillow                  7.1.2
+torchvision             0.11.1+cu111 @/usr/local/lib/python3.7/dist-packages/torchvision
+torchvision arch flags  3.5, 5.0, 6.0, 7.0, 7.5, 8.0, 8.6
+fvcore                  0.1.5.post20211023
+iopath                  0.1.9
+cv2                     4.1.2
+----------------------  ----------------------------------------------------------------
+PyTorch built with:
+  - GCC 7.3
+  - C++ Version: 201402
+  - Intel(R) Math Kernel Library Version 2020.0.0 Product Build 20191122 for Intel(R) 64 architecture applications
+  - Intel(R) MKL-DNN v2.2.3 (Git Hash 7336ca9f055cf1bfa13efb658fe15dc9b41f0740)
+  - OpenMP 201511 (a.k.a. OpenMP 4.5)
+  - LAPACK is enabled (usually provided by MKL)
+  - NNPACK is enabled
+  - CPU capability usage: AVX2
+  - CUDA Runtime 11.1
+  - NVCC architecture flags: -gencode;arch=compute_37,code=sm_37;-gencode;arch=compute_50,code=sm_50;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_70,code=sm_70;-gencode;arch=compute_75,code=sm_75;-gencode;arch=compute_80,code=sm_80;-gencode;arch=compute_86,code=sm_86
+  - CuDNN 8.0.5
+  - Magma 2.5.2
+  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=11.1, CUDNN_VERSION=8.0.5, CXX_COMPILER=/opt/rh/devtoolset-7/root/usr/bin/c++, CXX_FLAGS= -Wno-deprecated -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -fopenmp -DNDEBUG -DUSE_KINETO -DUSE_FBGEMM -DUSE_QNNPACK -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -DEDGE_PROFILER_USE_KINETO -O2 -fPIC -Wno-narrowing -Wall -Wextra -Werror=return-type -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function -Wno-unused-result -Wno-unused-local-typedefs -Wno-strict-overflow -Wno-strict-aliasing -Wno-error=deprecated-declarations -Wno-stringop-overflow -Wno-psabi -Wno-error=pedantic -Wno-error=redundant-decls -Wno-error=old-style-cast -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, PERF_WITH_AVX512=1, TORCH_VERSION=1.10.0, USE_CUDA=ON, USE_CUDNN=ON, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, 
+
+[12/08 04:46:21] detectron2 INFO: Command line arguments: Namespace(config_file='./configs/yolof_CSP_D_53_DC5_9x.yaml', dist_url='tcp://127.0.0.1:49152', eval_only=True, machine_rank=0, num_gpus=1, num_machines=1, opts=['MODEL.WEIGHTS', '/content/YOLOFtest/out_weights/YOLOF_CSP_D_53_DC5_9x.pth'], resume=False)
+[12/08 04:46:21] detectron2 INFO: Contents of args.config_file=./configs/yolof_CSP_D_53_DC5_9x.yaml:
+[38;5;197m_BASE_[39m[38;5;15m:[39m[38;5;15m [39m[38;5;186m"[39m[38;5;186myolof_CSP_D_53_DC5_3x.yaml[39m[38;5;186m"[39m
+[38;5;197mSOLVER[39m[38;5;15m:[39m
+[38;5;15m  [39m[38;5;197mSTEPS[39m[38;5;15m:[39m[38;5;15m [39m(187500, 197500)
+[38;5;15m  [39m[38;5;197mMAX_ITER[39m[38;5;15m:[39m[38;5;15m [39m202500
+[38;5;197mOUTPUT_DIR[39m[38;5;15m:[39m[38;5;15m [39m[38;5;186m"[39m[38;5;186moutput/yolof/CSP_D_53_DC5_9x[39m[38;5;186m"[39m
+
+[12/08 04:46:21] detectron2 INFO: Running with full config:
+[38;5;197mCUDNN_BENCHMARK[39m[38;5;15m:[39m[38;5;15m [39mfalse
+[38;5;197mDATALOADER[39m[38;5;15m:[39m
+[38;5;15m  [39m[38;5;197mASPECT_RATIO_GROUPING[39m[38;5;15m:[39m[38;5;15m [39mtrue
+[38;5;15m  [39m[38;5;197mFILTER_EMPTY_ANNOTATIONS[39m[38;5;15m:[39m[38;5;15m [39mtrue
+[38;5;15m  [39m[38;5;197mNUM_WORKERS[39m[38;5;15m:[39m[38;5;15m [39m2
+[38;5;15m  [39m[38;5;197mREPEAT_THRESHOLD[39m[38;5;15m:[39m[38;5;15m [39m0.0
+[38;5;15m  [39m[38;5;197mSAMPLER_TRAIN[39m[38;5;15m:[39m[38;5;15m [39mTrainingSampler
+[38;5;197mDATASETS[39m[38;5;15m:[39m
+[38;5;15m  [39m[38;5;197mPRECOMPUTED_PROPOSAL_TOPK_TEST[39m[38;5;15m:[39m[38;5;15m [39m1000
+[38;5;15m  [39m[38;5;197mPRECOMPUTED_PROPOSAL_TOPK_TRAIN[39m[38;5;15m:[39m[38;5;15m [39m2000
+[38;5;15m  [39m[38;5;197mPROPOSAL_FILES_TEST[39m[38;5;15m:[39m[38;5;15m [39m[]
+[38;5;15m  [39m[38;5;197mPROPOSAL_FILES_TRAIN[39m[38;5;15m:[39m[38;5;15m [39m[]
+[38;5;15m  [39m[38;5;197mTEST[39m[38;5;15m:[39m
+[38;5;15m  [39m-[38;5;15m [39mtest
+[38;5;15m  [39m[38;5;197mTRAIN[39m[38;5;15m:[39m
+[38;5;15m  [39m-[38;5;15m [39mtrain
+[38;5;197mGLOBAL[39m[38;5;15m:[39m
+[38;5;15m  [39m[38;5;197mHACK[39m[38;5;15m:[39m[38;5;15m [39m1.0
+[38;5;197mINPUT[39m[38;5;15m:[39m
+[38;5;15m  [39m[38;5;197mCROP[39m[38;5;15m:[39m
+[38;5;15m    [39m[38;5;197mENABLED[39m[38;5;15m:[39m[38;5;15m [39mfalse
+[38;5;15m    [39m[38;5;197mSIZE[39m[38;5;15m:[39m
+[38;5;15m    [39m-[38;5;15m [39m0.9
+[38;5;15m    [39m-[38;5;15m [39m0.9
+[38;5;15m    [39m[38;5;197mTYPE[39m[38;5;15m:[39m[38;5;15m [39mrelative_range
+[38;5;15m  [39m[38;5;197mDISTORTION[39m[38;5;15m:[39m
+[38;5;15m    [39m[38;5;197mENABLED[39m[38;5;15m:[39m[38;5;15m [39mtrue
+[38;5;15m    [39m[38;5;197mEXPOSURE[39m[38;5;15m:[39m[38;5;15m [39m1.5
+[38;5;15m    [39m[38;5;197mHUE[39m[38;5;15m:[39m[38;5;15m [39m0.1
+[38;5;15m    [39m[38;5;197mSATURATION[39m[38;5;15m:[39m[38;5;15m [39m1.5
+[38;5;15m  [39m[38;5;197mFORMAT[39m[38;5;15m:[39m[38;5;15m [39mBGR
+[38;5;15m  [39m[38;5;197mJITTER_CROP[39m[38;5;15m:[39m
+[38;5;15m    [39m[38;5;197mENABLED[39m[38;5;15m:[39m[38;5;15m [39mtrue
+[38;5;15m    [39m[38;5;197mJITTER_RATIO[39m[38;5;15m:[39m[38;5;15m [39m0.3
+[38;5;15m  [39m[38;5;197mMASK_FORMAT[39m[38;5;15m:[39m[38;5;15m [39mpolygon
+[38;5;15m  [39m[38;5;197mMAX_SIZE_TEST[39m[38;5;15m:[39m[38;5;15m [39m1333
+[38;5;15m  [39m[38;5;197mMAX_SIZE_TRAIN[39m[38;5;15m:[39m[38;5;15m [39m1333
+[38;5;15m  [39m[38;5;197mMIN_SIZE_TEST[39m[38;5;15m:[39m[38;5;15m [39m800
+[38;5;15m  [39m[38;5;197mMIN_SIZE_TRAIN[39m[38;5;15m:[39m
+[38;5;15m  [39m-[38;5;15m [39m800
+[38;5;15m  [39m[38;5;197mMIN_SIZE_TRAIN_SAMPLING[39m[38;5;15m:[39m[38;5;15m [39mchoice
+[38;5;15m  [39m[38;5;197mMOSAIC[39m[38;5;15m:[39m
+[38;5;15m    [39m[38;5;197mENABLED[39m[38;5;15m:[39m[38;5;15m [39mtrue
+[38;5;15m    [39m[38;5;197mMIN_OFFSET[39m[38;5;15m:[39m[38;5;15m [39m0.2
+[38;5;15m    [39m[38;5;197mMOSAIC_HEIGHT[39m[38;5;15m:[39m[38;5;15m [39m640
+[38;5;15m    [39m[38;5;197mMOSAIC_WIDTH[39m[38;5;15m:[39m[38;5;15m [39m640
+[38;5;15m    [39m[38;5;197mNUM_IMAGES[39m[38;5;15m:[39m[38;5;15m [39m4
+[38;5;15m    [39m[38;5;197mPOOL_CAPACITY[39m[38;5;15m:[39m[38;5;15m [39m1000
+[38;5;15m  [39m[38;5;197mRANDOM_FLIP[39m[38;5;15m:[39m[38;5;15m [39mhorizontal
+[38;5;15m  [39m[38;5;197mRESIZE[39m[38;5;15m:[39m
+[38;5;15m    [39m[38;5;197mENABLED[39m[38;5;15m:[39m[38;5;15m [39mtrue
+[38;5;15m    [39m[38;5;197mSCALE_JITTER[39m[38;5;15m:[39m
+[38;5;15m    [39m-[38;5;15m [39m0.8
+[38;5;15m    [39m-[38;5;15m [39m1.2
+[38;5;15m    [39m[38;5;197mSHAPE[39m[38;5;15m:[39m
+[38;5;15m    [39m-[38;5;15m [39m640
+[38;5;15m    [39m-[38;5;15m [39m640
+[38;5;15m    [39m[38;5;197mTEST_SHAPE[39m[38;5;15m:[39m
+[38;5;15m    [39m-[38;5;15m [39m608
+[38;5;15m    [39m-[38;5;15m [39m608
+[38;5;15m  [39m[38;5;197mSHIFT[39m[38;5;15m:[39m
+[38;5;15m    [39m[38;5;197mSHIFT_PIXELS[39m[38;5;15m:[39m[38;5;15m [39m32
+[38;5;197mMODEL[39m[38;5;15m:[39m
+[38;5;15m  [39m[38;5;197mANCHOR_GENERATOR[39m[38;5;15m:[39m
+[38;5;15m    [39m[38;5;197mANGLES[39m[38;5;15m:[39m
+[38;5;15m    [39m-[38;5;15m [39m-[38;5;15m [39m-90
+[38;5;15m      [39m-[38;5;15m [39m0
+[38;5;15m      [39m-[38;5;15m [39m90
+[38;5;15m    [39m[38;5;197mASPECT_RATIOS[39m[38;5;15m:[39m
+[38;5;15m    [39m-[38;5;15m [39m-[38;5;15m [39m1.0
+[38;5;15m    [39m[38;5;197mNAME[39m[38;5;15m:[39m[38;5;15m [39mDefaultAnchorGenerator
+[38;5;15m    [39m[38;5;197mOFFSET[39m[38;5;15m:[39m[38;5;15m [39m0.0
+[38;5;15m    [39m[38;5;197mSIZES[39m[38;5;15m:[39m
+[38;5;15m    [39m-[38;5;15m [39m-[38;5;15m [39m16
+[38;5;15m      [39m-[38;5;15m [39m32
+[38;5;15m      [39m-[38;5;15m [39m64
+[38;5;15m      [39m-[38;5;15m [39m128
+[38;5;15m      [39m-[38;5;15m [39m256
+[38;5;15m      [39m-[38;5;15m [39m512
+[38;5;15m  [39m[38;5;197mBACKBONE[39m[38;5;15m:[39m
+[38;5;15m    [39m[38;5;197mFREEZE_AT[39m[38;5;15m:[39m[38;5;15m [39m2
+[38;5;15m    [39m[38;5;197mNAME[39m[38;5;15m:[39m[38;5;15m [39mbuild_darknet_backbone
+[38;5;15m  [39m[38;5;197mDARKNET[39m[38;5;15m:[39m
+[38;5;15m    [39m[38;5;197mDEPTH[39m[38;5;15m:[39m[38;5;15m [39m53
+[38;5;15m    [39m[38;5;197mNORM[39m[38;5;15m:[39m[38;5;15m [39mSyncBN
+[38;5;15m    [39m[38;5;197mOUT_FEATURES[39m[38;5;15m:[39m
+[38;5;15m    [39m-[38;5;15m [39mres5
+[38;5;15m    [39m[38;5;197mRES5_DILATION[39m[38;5;15m:[39m[38;5;15m [39m2
+[38;5;15m    [39m[38;5;197mWITH_CSP[39m[38;5;15m:[39m[38;5;15m [39mtrue
+[38;5;15m  [39m[38;5;197mDEVICE[39m[38;5;15m:[39m[38;5;15m [39mcuda
+[38;5;15m  [39m[38;5;197mFPN[39m[38;5;15m:[39m
+[38;5;15m    [39m[38;5;197mFUSE_TYPE[39m[38;5;15m:[39m[38;5;15m [39msum
+[38;5;15m    [39m[38;5;197mIN_FEATURES[39m[38;5;15m:[39m[38;5;15m [39m[]
+[38;5;15m    [39m[38;5;197mNORM[39m[38;5;15m:[39m[38;5;15m [39m[38;5;186m'[39m[38;5;186m'[39m
+[38;5;15m    [39m[38;5;197mOUT_CHANNELS[39m[38;5;15m:[39m[38;5;15m [39m256
+[38;5;15m  [39m[38;5;197mKEYPOINT_ON[39m[38;5;15m:[39m[38;5;15m [39mfalse
+[38;5;15m  [39m[38;5;197mLOAD_PROPOSALS[39m[38;5;15m:[39m[38;5;15m [39mfalse
+[38;5;15m  [39m[38;5;197mMASK_ON[39m[38;5;15m:[39m[38;5;15m [39mfalse
+[38;5;15m  [39m[38;5;197mMETA_ARCHITECTURE[39m[38;5;15m:[39m[38;5;15m [39mYOLOF
+[38;5;15m  [39m[38;5;197mPANOPTIC_FPN[39m[38;5;15m:[39m
+[38;5;15m    [39m[38;5;197mCOMBINE[39m[38;5;15m:[39m
+[38;5;15m      [39m[38;5;197mENABLED[39m[38;5;15m:[39m[38;5;15m [39mtrue
+[38;5;15m      [39m[38;5;197mINSTANCES_CONFIDENCE_THRESH[39m[38;5;15m:[39m[38;5;15m [39m0.5
+[38;5;15m      [39m[38;5;197mOVERLAP_THRESH[39m[38;5;15m:[39m[38;5;15m [39m0.5
+[38;5;15m      [39m[38;5;197mSTUFF_AREA_LIMIT[39m[38;5;15m:[39m[38;5;15m [39m4096
+[38;5;15m    [39m[38;5;197mINSTANCE_LOSS_WEIGHT[39m[38;5;15m:[39m[38;5;15m [39m1.0
+[38;5;15m  [39m[38;5;197mPIXEL_MEAN[39m[38;5;15m:[39m
+[38;5;15m  [39m-[38;5;15m [39m103.53
+[38;5;15m  [39m-[38;5;15m [39m116.28
+[38;5;15m  [39m-[38;5;15m [39m123.675
+[38;5;15m  [39m[38;5;197mPIXEL_STD[39m[38;5;15m:[39m
+[38;5;15m  [39m-[38;5;15m [39m1.0
+[38;5;15m  [39m-[38;5;15m [39m1.0
+[38;5;15m  [39m-[38;5;15m [39m1.0
+[38;5;15m  [39m[38;5;197mPROPOSAL_GENERATOR[39m[38;5;15m:[39m
+[38;5;15m    [39m[38;5;197mMIN_SIZE[39m[38;5;15m:[39m[38;5;15m [39m0
+[38;5;15m    [39m[38;5;197mNAME[39m[38;5;15m:[39m[38;5;15m [39mRPN
+[38;5;15m  [39m[38;5;197mRESNETS[39m[38;5;15m:[39m
+[38;5;15m    [39m[38;5;197mDEFORM_MODULATED[39m[38;5;15m:[39m[38;5;15m [39mfalse
+[38;5;15m    [39m[38;5;197mDEFORM_NUM_GROUPS[39m[38;5;15m:[39m[38;5;15m [39m1
+[38;5;15m    [39m[38;5;197mDEFORM_ON_PER_STAGE[39m[38;5;15m:[39m
+[38;5;15m    [39m-[38;5;15m [39mfalse
+[38;5;15m    [39m-[38;5;15m [39mfalse
+[38;5;15m    [39m-[38;5;15m [39mfalse
+[38;5;15m    [39m-[38;5;15m [39mfalse
+[38;5;15m    [39m[38;5;197mDEPTH[39m[38;5;15m:[39m[38;5;15m [39m50
+[38;5;15m    [39m[38;5;197mNORM[39m[38;5;15m:[39m[38;5;15m [39mFrozenBN
+[38;5;15m    [39m[38;5;197mNUM_GROUPS[39m[38;5;15m:[39m[38;5;15m [39m1
+[38;5;15m    [39m[38;5;197mOUT_FEATURES[39m[38;5;15m:[39m
+[38;5;15m    [39m-[38;5;15m [39mres5
+[38;5;15m    [39m[38;5;197mRES2_OUT_CHANNELS[39m[38;5;15m:[39m[38;5;15m [39m256
+[38;5;15m    [39m[38;5;197mRES5_DILATION[39m[38;5;15m:[39m[38;5;15m [39m1
+[38;5;15m    [39m[38;5;197mSTEM_OUT_CHANNELS[39m[38;5;15m:[39m[38;5;15m [39m64
+[38;5;15m    [39m[38;5;197mSTRIDE_IN_1X1[39m[38;5;15m:[39m[38;5;15m [39mtrue
+[38;5;15m    [39m[38;5;197mWIDTH_PER_GROUP[39m[38;5;15m:[39m[38;5;15m [39m64
+[38;5;15m  [39m[38;5;197mRETINANET[39m[38;5;15m:[39m
+[38;5;15m    [39m[38;5;197mBBOX_REG_LOSS_TYPE[39m[38;5;15m:[39m[38;5;15m [39msmooth_l1
+[38;5;15m    [39m[38;5;197mBBOX_REG_WEIGHTS[39m[38;5;15m:[39m[38;5;15m [39m[38;5;15m&id001[39m
+[38;5;15m    [39m-[38;5;15m [39m1.0
+[38;5;15m    [39m-[38;5;15m [39m1.0
+[38;5;15m    [39m-[38;5;15m [39m1.0
+[38;5;15m    [39m-[38;5;15m [39m1.0
+[38;5;15m    [39m[38;5;197mFOCAL_LOSS_ALPHA[39m[38;5;15m:[39m[38;5;15m [39m0.25
+[38;5;15m    [39m[38;5;197mFOCAL_LOSS_GAMMA[39m[38;5;15m:[39m[38;5;15m [39m2.0
+[38;5;15m    [39m[38;5;197mIN_FEATURES[39m[38;5;15m:[39m
+[38;5;15m    [39m-[38;5;15m [39mp3
+[38;5;15m    [39m-[38;5;15m [39mp4
+[38;5;15m    [39m-[38;5;15m [39mp5
+[38;5;15m    [39m-[38;5;15m [39mp6
+[38;5;15m    [39m-[38;5;15m [39mp7
+[38;5;15m    [39m[38;5;197mIOU_LABELS[39m[38;5;15m:[39m
+[38;5;15m    [39m-[38;5;15m [39m0
+[38;5;15m    [39m-[38;5;15m [39m-1
+[38;5;15m    [39m-[38;5;15m [39m1
+[38;5;15m    [39m[38;5;197mIOU_THRESHOLDS[39m[38;5;15m:[39m
+[38;5;15m    [39m-[38;5;15m [39m0.4
+[38;5;15m    [39m-[38;5;15m [39m0.5
+[38;5;15m    [39m[38;5;197mNMS_THRESH_TEST[39m[38;5;15m:[39m[38;5;15m [39m0.5
+[38;5;15m    [39m[38;5;197mNORM[39m[38;5;15m:[39m[38;5;15m [39m[38;5;186m'[39m[38;5;186m'[39m
+[38;5;15m    [39m[38;5;197mNUM_CLASSES[39m[38;5;15m:[39m[38;5;15m [39m80
+[38;5;15m    [39m[38;5;197mNUM_CONVS[39m[38;5;15m:[39m[38;5;15m [39m4
+[38;5;15m    [39m[38;5;197mPRIOR_PROB[39m[38;5;15m:[39m[38;5;15m [39m0.01
+[38;5;15m    [39m[38;5;197mSCORE_THRESH_TEST[39m[38;5;15m:[39m[38;5;15m [39m0.05
+[38;5;15m    [39m[38;5;197mSMOOTH_L1_LOSS_BETA[39m[38;5;15m:[39m[38;5;15m [39m0.1
+[38;5;15m    [39m[38;5;197mTOPK_CANDIDATES_TEST[39m[38;5;15m:[39m[38;5;15m [39m1000
+[38;5;15m  [39m[38;5;197mROI_BOX_CASCADE_HEAD[39m[38;5;15m:[39m
+[38;5;15m    [39m[38;5;197mBBOX_REG_WEIGHTS[39m[38;5;15m:[39m
+[38;5;15m    [39m-[38;5;15m [39m-[38;5;15m [39m10.0
+[38;5;15m      [39m-[38;5;15m [39m10.0
+[38;5;15m      [39m-[38;5;15m [39m5.0
+[38;5;15m      [39m-[38;5;15m [39m5.0
+[38;5;15m    [39m-[38;5;15m [39m-[38;5;15m [39m20.0
+[38;5;15m      [39m-[38;5;15m [39m20.0
+[38;5;15m      [39m-[38;5;15m [39m10.0
+[38;5;15m      [39m-[38;5;15m [39m10.0
+[38;5;15m    [39m-[38;5;15m [39m-[38;5;15m [39m30.0
+[38;5;15m      [39m-[38;5;15m [39m30.0
+[38;5;15m      [39m-[38;5;15m [39m15.0
+[38;5;15m      [39m-[38;5;15m [39m15.0
+[38;5;15m    [39m[38;5;197mIOUS[39m[38;5;15m:[39m
+[38;5;15m    [39m-[38;5;15m [39m0.5
+[38;5;15m    [39m-[38;5;15m [39m0.6
+[38;5;15m    [39m-[38;5;15m [39m0.7
+[38;5;15m  [39m[38;5;197mROI_BOX_HEAD[39m[38;5;15m:[39m
+[38;5;15m    [39m[38;5;197mBBOX_REG_LOSS_TYPE[39m[38;5;15m:[39m[38;5;15m [39msmooth_l1
+[38;5;15m    [39m[38;5;197mBBOX_REG_LOSS_WEIGHT[39m[38;5;15m:[39m[38;5;15m [39m1.0
+[38;5;15m    [39m[38;5;197mBBOX_REG_WEIGHTS[39m[38;5;15m:[39m
+[38;5;15m    [39m-[38;5;15m [39m10.0
+[38;5;15m    [39m-[38;5;15m [39m10.0
+[38;5;15m    [39m-[38;5;15m [39m5.0
+[38;5;15m    [39m-[38;5;15m [39m5.0
+[38;5;15m    [39m[38;5;197mCLS_AGNOSTIC_BBOX_REG[39m[38;5;15m:[39m[38;5;15m [39mfalse
+[38;5;15m    [39m[38;5;197mCONV_DIM[39m[38;5;15m:[39m[38;5;15m [39m256
+[38;5;15m    [39m[38;5;197mFC_DIM[39m[38;5;15m:[39m[38;5;15m [39m1024
+[38;5;15m    [39m[38;5;197mNAME[39m[38;5;15m:[39m[38;5;15m [39m[38;5;186m'[39m[38;5;186m'[39m
+[38;5;15m    [39m[38;5;197mNORM[39m[38;5;15m:[39m[38;5;15m [39m[38;5;186m'[39m[38;5;186m'[39m
+[38;5;15m    [39m[38;5;197mNUM_CONV[39m[38;5;15m:[39m[38;5;15m [39m0
+[38;5;15m    [39m[38;5;197mNUM_FC[39m[38;5;15m:[39m[38;5;15m [39m0
+[38;5;15m    [39m[38;5;197mPOOLER_RESOLUTION[39m[38;5;15m:[39m[38;5;15m [39m14
+[38;5;15m    [39m[38;5;197mPOOLER_SAMPLING_RATIO[39m[38;5;15m:[39m[38;5;15m [39m0
+[38;5;15m    [39m[38;5;197mPOOLER_TYPE[39m[38;5;15m:[39m[38;5;15m [39mROIAlignV2
+[38;5;15m    [39m[38;5;197mSMOOTH_L1_BETA[39m[38;5;15m:[39m[38;5;15m [39m0.0
+[38;5;15m    [39m[38;5;197mTRAIN_ON_PRED_BOXES[39m[38;5;15m:[39m[38;5;15m [39mfalse
+[38;5;15m  [39m[38;5;197mROI_HEADS[39m[38;5;15m:[39m
+[38;5;15m    [39m[38;5;197mBATCH_SIZE_PER_IMAGE[39m[38;5;15m:[39m[38;5;15m [39m512
+[38;5;15m    [39m[38;5;197mIN_FEATURES[39m[38;5;15m:[39m
+[38;5;15m    [39m-[38;5;15m [39mres4
+[38;5;15m    [39m[38;5;197mIOU_LABELS[39m[38;5;15m:[39m
+[38;5;15m    [39m-[38;5;15m [39m0
+[38;5;15m    [39m-[38;5;15m [39m1
+[38;5;15m    [39m[38;5;197mIOU_THRESHOLDS[39m[38;5;15m:[39m
+[38;5;15m    [39m-[38;5;15m [39m0.5
+[38;5;15m    [39m[38;5;197mNAME[39m[38;5;15m:[39m[38;5;15m [39mRes5ROIHeads
+[38;5;15m    [39m[38;5;197mNMS_THRESH_TEST[39m[38;5;15m:[39m[38;5;15m [39m0.5
+[38;5;15m    [39m[38;5;197mNUM_CLASSES[39m[38;5;15m:[39m[38;5;15m [39m80
+[38;5;15m    [39m[38;5;197mPOSITIVE_FRACTION[39m[38;5;15m:[39m[38;5;15m [39m0.25
+[38;5;15m    [39m[38;5;197mPROPOSAL_APPEND_GT[39m[38;5;15m:[39m[38;5;15m [39mtrue
+[38;5;15m    [39m[38;5;197mSCORE_THRESH_TEST[39m[38;5;15m:[39m[38;5;15m [39m0.05
+[38;5;15m  [39m[38;5;197mROI_KEYPOINT_HEAD[39m[38;5;15m:[39m
+[38;5;15m    [39m[38;5;197mCONV_DIMS[39m[38;5;15m:[39m
+[38;5;15m    [39m-[38;5;15m [39m512
+[38;5;15m    [39m-[38;5;15m [39m512
+[38;5;15m    [39m-[38;5;15m [39m512
+[38;5;15m    [39m-[38;5;15m [39m512
+[38;5;15m    [39m-[38;5;15m [39m512
+[38;5;15m    [39m-[38;5;15m [39m512
+[38;5;15m    [39m-[38;5;15m [39m512
+[38;5;15m    [39m-[38;5;15m [39m512
+[38;5;15m    [39m[38;5;197mLOSS_WEIGHT[39m[38;5;15m:[39m[38;5;15m [39m1.0
+[38;5;15m    [39m[38;5;197mMIN_KEYPOINTS_PER_IMAGE[39m[38;5;15m:[39m[38;5;15m [39m1
+[38;5;15m    [39m[38;5;197mNAME[39m[38;5;15m:[39m[38;5;15m [39mKRCNNConvDeconvUpsampleHead
+[38;5;15m    [39m[38;5;197mNORMALIZE_LOSS_BY_VISIBLE_KEYPOINTS[39m[38;5;15m:[39m[38;5;15m [39mtrue
+[38;5;15m    [39m[38;5;197mNUM_KEYPOINTS[39m[38;5;15m:[39m[38;5;15m [39m17
+[38;5;15m    [39m[38;5;197mPOOLER_RESOLUTION[39m[38;5;15m:[39m[38;5;15m [39m14
+[38;5;15m    [39m[38;5;197mPOOLER_SAMPLING_RATIO[39m[38;5;15m:[39m[38;5;15m [39m0
+[38;5;15m    [39m[38;5;197mPOOLER_TYPE[39m[38;5;15m:[39m[38;5;15m [39mROIAlignV2
+[38;5;15m  [39m[38;5;197mROI_MASK_HEAD[39m[38;5;15m:[39m
+[38;5;15m    [39m[38;5;197mCLS_AGNOSTIC_MASK[39m[38;5;15m:[39m[38;5;15m [39mfalse
+[38;5;15m    [39m[38;5;197mCONV_DIM[39m[38;5;15m:[39m[38;5;15m [39m256
+[38;5;15m    [39m[38;5;197mNAME[39m[38;5;15m:[39m[38;5;15m [39mMaskRCNNConvUpsampleHead
+[38;5;15m    [39m[38;5;197mNORM[39m[38;5;15m:[39m[38;5;15m [39m[38;5;186m'[39m[38;5;186m'[39m
+[38;5;15m    [39m[38;5;197mNUM_CONV[39m[38;5;15m:[39m[38;5;15m [39m0
+[38;5;15m    [39m[38;5;197mPOOLER_RESOLUTION[39m[38;5;15m:[39m[38;5;15m [39m14
+[38;5;15m    [39m[38;5;197mPOOLER_SAMPLING_RATIO[39m[38;5;15m:[39m[38;5;15m [39m0
+[38;5;15m    [39m[38;5;197mPOOLER_TYPE[39m[38;5;15m:[39m[38;5;15m [39mROIAlignV2
+[38;5;15m  [39m[38;5;197mRPN[39m[38;5;15m:[39m
+[38;5;15m    [39m[38;5;197mBATCH_SIZE_PER_IMAGE[39m[38;5;15m:[39m[38;5;15m [39m256
+[38;5;15m    [39m[38;5;197mBBOX_REG_LOSS_TYPE[39m[38;5;15m:[39m[38;5;15m [39msmooth_l1
+[38;5;15m    [39m[38;5;197mBBOX_REG_LOSS_WEIGHT[39m[38;5;15m:[39m[38;5;15m [39m1.0
+[38;5;15m    [39m[38;5;197mBBOX_REG_WEIGHTS[39m[38;5;15m:[39m[38;5;15m [39m[38;5;15m*id001[39m
+[38;5;15m    [39m[38;5;197mBOUNDARY_THRESH[39m[38;5;15m:[39m[38;5;15m [39m-1
+[38;5;15m    [39m[38;5;197mCONV_DIMS[39m[38;5;15m:[39m
+[38;5;15m    [39m-[38;5;15m [39m-1
+[38;5;15m    [39m[38;5;197mHEAD_NAME[39m[38;5;15m:[39m[38;5;15m [39mStandardRPNHead
+[38;5;15m    [39m[38;5;197mIN_FEATURES[39m[38;5;15m:[39m
+[38;5;15m    [39m-[38;5;15m [39mres4
+[38;5;15m    [39m[38;5;197mIOU_LABELS[39m[38;5;15m:[39m
+[38;5;15m    [39m-[38;5;15m [39m0
+[38;5;15m    [39m-[38;5;15m [39m-1
+[38;5;15m    [39m-[38;5;15m [39m1
+[38;5;15m    [39m[38;5;197mIOU_THRESHOLDS[39m[38;5;15m:[39m
+[38;5;15m    [39m-[38;5;15m [39m0.3
+[38;5;15m    [39m-[38;5;15m [39m0.7
+[38;5;15m    [39m[38;5;197mLOSS_WEIGHT[39m[38;5;15m:[39m[38;5;15m [39m1.0
+[38;5;15m    [39m[38;5;197mNMS_THRESH[39m[38;5;15m:[39m[38;5;15m [39m0.7
+[38;5;15m    [39m[38;5;197mPOSITIVE_FRACTION[39m[38;5;15m:[39m[38;5;15m [39m0.5
+[38;5;15m    [39m[38;5;197mPOST_NMS_TOPK_TEST[39m[38;5;15m:[39m[38;5;15m [39m1000
+[38;5;15m    [39m[38;5;197mPOST_NMS_TOPK_TRAIN[39m[38;5;15m:[39m[38;5;15m [39m2000
+[38;5;15m    [39m[38;5;197mPRE_NMS_TOPK_TEST[39m[38;5;15m:[39m[38;5;15m [39m6000
+[38;5;15m    [39m[38;5;197mPRE_NMS_TOPK_TRAIN[39m[38;5;15m:[39m[38;5;15m [39m12000
+[38;5;15m    [39m[38;5;197mSMOOTH_L1_BETA[39m[38;5;15m:[39m[38;5;15m [39m0.0
+[38;5;15m  [39m[38;5;197mSEM_SEG_HEAD[39m[38;5;15m:[39m
+[38;5;15m    [39m[38;5;197mCOMMON_STRIDE[39m[38;5;15m:[39m[38;5;15m [39m4
+[38;5;15m    [39m[38;5;197mCONVS_DIM[39m[38;5;15m:[39m[38;5;15m [39m128
+[38;5;15m    [39m[38;5;197mIGNORE_VALUE[39m[38;5;15m:[39m[38;5;15m [39m255
+[38;5;15m    [39m[38;5;197mIN_FEATURES[39m[38;5;15m:[39m
+[38;5;15m    [39m-[38;5;15m [39mp2
+[38;5;15m    [39m-[38;5;15m [39mp3
+[38;5;15m    [39m-[38;5;15m [39mp4
+[38;5;15m    [39m-[38;5;15m [39mp5
+[38;5;15m    [39m[38;5;197mLOSS_WEIGHT[39m[38;5;15m:[39m[38;5;15m [39m1.0
+[38;5;15m    [39m[38;5;197mNAME[39m[38;5;15m:[39m[38;5;15m [39mSemSegFPNHead
+[38;5;15m    [39m[38;5;197mNORM[39m[38;5;15m:[39m[38;5;15m [39mGN
+[38;5;15m    [39m[38;5;197mNUM_CLASSES[39m[38;5;15m:[39m[38;5;15m [39m54
+[38;5;15m  [39m[38;5;197mWEIGHTS[39m[38;5;15m:[39m[38;5;15m [39m/content/YOLOFtest/out_weights/YOLOF_CSP_D_53_DC5_9x.pth
+[38;5;15m  [39m[38;5;197mYOLOF[39m[38;5;15m:[39m
+[38;5;15m    [39m[38;5;197mBOX_TRANSFORM[39m[38;5;15m:[39m
+[38;5;15m      [39m[38;5;197mADD_CTR_CLAMP[39m[38;5;15m:[39m[38;5;15m [39mtrue
+[38;5;15m      [39m[38;5;197mBBOX_REG_WEIGHTS[39m[38;5;15m:[39m
+[38;5;15m      [39m-[38;5;15m [39m1.0
+[38;5;15m      [39m-[38;5;15m [39m1.0
+[38;5;15m      [39m-[38;5;15m [39m1.0
+[38;5;15m      [39m-[38;5;15m [39m1.0
+[38;5;15m      [39m[38;5;197mCTR_CLAMP[39m[38;5;15m:[39m[38;5;15m [39m32
+[38;5;15m    [39m[38;5;197mDECODER[39m[38;5;15m:[39m
+[38;5;15m      [39m[38;5;197mACTIVATION[39m[38;5;15m:[39m[38;5;15m [39mLeakyReLU
+[38;5;15m      [39m[38;5;197mCLS_NUM_CONVS[39m[38;5;15m:[39m[38;5;15m [39m2
+[38;5;15m      [39m[38;5;197mIN_CHANNELS[39m[38;5;15m:[39m[38;5;15m [39m512
+[38;5;15m      [39m[38;5;197mNORM[39m[38;5;15m:[39m[38;5;15m [39mSyncBN
+[38;5;15m      [39m[38;5;197mNUM_ANCHORS[39m[38;5;15m:[39m[38;5;15m [39m6
+[38;5;15m      [39m[38;5;197mNUM_CLASSES[39m[38;5;15m:[39m[38;5;15m [39m80
+[38;5;15m      [39m[38;5;197mPRIOR_PROB[39m[38;5;15m:[39m[38;5;15m [39m0.01
+[38;5;15m      [39m[38;5;197mREG_NUM_CONVS[39m[38;5;15m:[39m[38;5;15m [39m4
+[38;5;15m    [39m[38;5;197mDETECTIONS_PER_IMAGE[39m[38;5;15m:[39m[38;5;15m [39m100
+[38;5;15m    [39m[38;5;197mENCODER[39m[38;5;15m:[39m
+[38;5;15m      [39m[38;5;197mACTIVATION[39m[38;5;15m:[39m[38;5;15m [39mLeakyReLU
+[38;5;15m      [39m[38;5;197mBACKBONE_LEVEL[39m[38;5;15m:[39m[38;5;15m [39mres5
+[38;5;15m      [39m[38;5;197mBLOCK_DILATIONS[39m[38;5;15m:[39m
+[38;5;15m      [39m-[38;5;15m [39m1
+[38;5;15m      [39m-[38;5;15m [39m2
+[38;5;15m      [39m-[38;5;15m [39m3
+[38;5;15m      [39m-[38;5;15m [39m4
+[38;5;15m      [39m-[38;5;15m [39m5
+[38;5;15m      [39m-[38;5;15m [39m6
+[38;5;15m      [39m-[38;5;15m [39m7
+[38;5;15m      [39m-[38;5;15m [39m8
+[38;5;15m      [39m[38;5;197mBLOCK_MID_CHANNELS[39m[38;5;15m:[39m[38;5;15m [39m128
+[38;5;15m      [39m[38;5;197mIN_CHANNELS[39m[38;5;15m:[39m[38;5;15m [39m1024
+[38;5;15m      [39m[38;5;197mNORM[39m[38;5;15m:[39m[38;5;15m [39mSyncBN
+[38;5;15m      [39m[38;5;197mNUM_CHANNELS[39m[38;5;15m:[39m[38;5;15m [39m512
+[38;5;15m      [39m[38;5;197mNUM_RESIDUAL_BLOCKS[39m[38;5;15m:[39m[38;5;15m [39m8
+[38;5;15m    [39m[38;5;197mLOSSES[39m[38;5;15m:[39m
+[38;5;15m      [39m[38;5;197mBBOX_REG_LOSS_TYPE[39m[38;5;15m:[39m[38;5;15m [39mgiou
+[38;5;15m      [39m[38;5;197mFOCAL_LOSS_ALPHA[39m[38;5;15m:[39m[38;5;15m [39m0.25
+[38;5;15m      [39m[38;5;197mFOCAL_LOSS_GAMMA[39m[38;5;15m:[39m[38;5;15m [39m2.0
+[38;5;15m    [39m[38;5;197mMATCHER[39m[38;5;15m:[39m
+[38;5;15m      [39m[38;5;197mTOPK[39m[38;5;15m:[39m[38;5;15m [39m4
+[38;5;15m    [39m[38;5;197mNEG_IGNORE_THRESHOLD[39m[38;5;15m:[39m[38;5;15m [39m0.7
+[38;5;15m    [39m[38;5;197mNMS_THRESH_TEST[39m[38;5;15m:[39m[38;5;15m [39m0.6
+[38;5;15m    [39m[38;5;197mPOS_IGNORE_THRESHOLD[39m[38;5;15m:[39m[38;5;15m [39m0.1
+[38;5;15m    [39m[38;5;197mSCORE_THRESH_TEST[39m[38;5;15m:[39m[38;5;15m [39m0.05
+[38;5;15m    [39m[38;5;197mTOPK_CANDIDATES_TEST[39m[38;5;15m:[39m[38;5;15m [39m1000
+[38;5;197mOUTPUT_DIR[39m[38;5;15m:[39m[38;5;15m [39moutput/yolof/CSP_D_53_DC5_9x
+[38;5;197mSEED[39m[38;5;15m:[39m[38;5;15m [39m-1
+[38;5;197mSOLVER[39m[38;5;15m:[39m
+[38;5;15m  [39m[38;5;197mAMP[39m[38;5;15m:[39m
+[38;5;15m    [39m[38;5;197mENABLED[39m[38;5;15m:[39m[38;5;15m [39mfalse
+[38;5;15m  [39m[38;5;197mBACKBONE_MULTIPLIER[39m[38;5;15m:[39m[38;5;15m [39m1.0
+[38;5;15m  [39m[38;5;197mBASE_LR[39m[38;5;15m:[39m[38;5;15m [39m0.04
+[38;5;15m  [39m[38;5;197mBIAS_LR_FACTOR[39m[38;5;15m:[39m[38;5;15m [39m1.0
+[38;5;15m  [39m[38;5;197mCHECKPOINT_PERIOD[39m[38;5;15m:[39m[38;5;15m [39m5000
+[38;5;15m  [39m[38;5;197mCLIP_GRADIENTS[39m[38;5;15m:[39m
+[38;5;15m    [39m[38;5;197mCLIP_TYPE[39m[38;5;15m:[39m[38;5;15m [39mvalue
+[38;5;15m    [39m[38;5;197mCLIP_VALUE[39m[38;5;15m:[39m[38;5;15m [39m1.0
+[38;5;15m    [39m[38;5;197mENABLED[39m[38;5;15m:[39m[38;5;15m [39mfalse
+[38;5;15m    [39m[38;5;197mNORM_TYPE[39m[38;5;15m:[39m[38;5;15m [39m2.0
+[38;5;15m  [39m[38;5;197mGAMMA[39m[38;5;15m:[39m[38;5;15m [39m0.1
+[38;5;15m  [39m[38;5;197mIMS_PER_BATCH[39m[38;5;15m:[39m[38;5;15m [39m2
+[38;5;15m  [39m[38;5;197mLR_SCHEDULER_NAME[39m[38;5;15m:[39m[38;5;15m [39mWarmupMultiStepLR
+[38;5;15m  [39m[38;5;197mMAX_ITER[39m[38;5;15m:[39m[38;5;15m [39m202500
+[38;5;15m  [39m[38;5;197mMOMENTUM[39m[38;5;15m:[39m[38;5;15m [39m0.9
+[38;5;15m  [39m[38;5;197mNESTEROV[39m[38;5;15m:[39m[38;5;15m [39mfalse
+[38;5;15m  [39m[38;5;197mREFERENCE_WORLD_SIZE[39m[38;5;15m:[39m[38;5;15m [39m0
+[38;5;15m  [39m[38;5;197mSTEPS[39m[38;5;15m:[39m
+[38;5;15m  [39m-[38;5;15m [39m187500
+[38;5;15m  [39m-[38;5;15m [39m197500
+[38;5;15m  [39m[38;5;197mWARMUP_FACTOR[39m[38;5;15m:[39m[38;5;15m [39m0.00066667
+[38;5;15m  [39m[38;5;197mWARMUP_ITERS[39m[38;5;15m:[39m[38;5;15m [39m1500
+[38;5;15m  [39m[38;5;197mWARMUP_METHOD[39m[38;5;15m:[39m[38;5;15m [39mlinear
+[38;5;15m  [39m[38;5;197mWEIGHT_DECAY[39m[38;5;15m:[39m[38;5;15m [39m0.0001
+[38;5;15m  [39m[38;5;197mWEIGHT_DECAY_BIAS[39m[38;5;15m:[39m[38;5;15m [39mnull
+[38;5;15m  [39m[38;5;197mWEIGHT_DECAY_NORM[39m[38;5;15m:[39m[38;5;15m [39m0.0
+[38;5;197mTEST[39m[38;5;15m:[39m
+[38;5;15m  [39m[38;5;197mAUG[39m[38;5;15m:[39m
+[38;5;15m    [39m[38;5;197mENABLED[39m[38;5;15m:[39m[38;5;15m [39mfalse
+[38;5;15m    [39m[38;5;197mFLIP[39m[38;5;15m:[39m[38;5;15m [39mtrue
+[38;5;15m    [39m[38;5;197mMAX_SIZE[39m[38;5;15m:[39m[38;5;15m [39m4000
+[38;5;15m    [39m[38;5;197mMIN_SIZES[39m[38;5;15m:[39m
+[38;5;15m    [39m-[38;5;15m [39m400
+[38;5;15m    [39m-[38;5;15m [39m500
+[38;5;15m    [39m-[38;5;15m [39m600
+[38;5;15m    [39m-[38;5;15m [39m700
+[38;5;15m    [39m-[38;5;15m [39m800
+[38;5;15m    [39m-[38;5;15m [39m900
+[38;5;15m    [39m-[38;5;15m [39m1000
+[38;5;15m    [39m-[38;5;15m [39m1100
+[38;5;15m    [39m-[38;5;15m [39m1200
+[38;5;15m  [39m[38;5;197mDETECTIONS_PER_IMAGE[39m[38;5;15m:[39m[38;5;15m [39m100
+[38;5;15m  [39m[38;5;197mEVAL_PERIOD[39m[38;5;15m:[39m[38;5;15m [39m0
+[38;5;15m  [39m[38;5;197mEXPECTED_RESULTS[39m[38;5;15m:[39m[38;5;15m [39m[]
+[38;5;15m  [39m[38;5;197mKEYPOINT_OKS_SIGMAS[39m[38;5;15m:[39m[38;5;15m [39m[]
+[38;5;15m  [39m[38;5;197mPRECISE_BN[39m[38;5;15m:[39m
+[38;5;15m    [39m[38;5;197mENABLED[39m[38;5;15m:[39m[38;5;15m [39mfalse
+[38;5;15m    [39m[38;5;197mNUM_ITER[39m[38;5;15m:[39m[38;5;15m [39m200
+[38;5;197mVERSION[39m[38;5;15m:[39m[38;5;15m [39m2
+[38;5;197mVIS_PERIOD[39m[38;5;15m:[39m[38;5;15m [39m0
+
+[12/08 04:46:21] detectron2 INFO: Full config saved to output/yolof/CSP_D_53_DC5_9x/config.yaml
+[12/08 04:46:21] d2.utils.env INFO: Using a generated random seed 21446286
+[12/08 04:46:30] d2.engine.defaults INFO: Model:
+YOLOF(
+  (backbone): DarkNet(
+    (conv1): Conv2d(3, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn1): SyncBatchNorm(32, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+    (act1): MishCuda()
+    (layer1): CrossStagePartialBlock(
+      (base_layer): Sequential(
+        (0): Conv2d(32, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (1): SyncBatchNorm(64, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+        (2): MishCuda()
+      )
+      (partial_transition1): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): SyncBatchNorm(64, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+        (2): MishCuda()
+      )
+      (stage_layers): Sequential(
+        (0): DarkBlock(
+          (downsample): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (1): SyncBatchNorm(64, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+            (2): MishCuda()
+          )
+          (bn1): SyncBatchNorm(32, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (bn2): SyncBatchNorm(64, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (conv1): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (conv2): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (activation): MishCuda()
+        )
+      )
+      (partial_transition2): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): SyncBatchNorm(64, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+        (2): MishCuda()
+      )
+      (fuse_transition): Sequential(
+        (0): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): SyncBatchNorm(64, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+        (2): MishCuda()
+      )
+    )
+    (layer2): CrossStagePartialBlock(
+      (base_layer): Sequential(
+        (0): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (1): SyncBatchNorm(128, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+        (2): MishCuda()
+      )
+      (partial_transition1): Sequential(
+        (0): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): SyncBatchNorm(64, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+        (2): MishCuda()
+      )
+      (stage_layers): Sequential(
+        (0): DarkBlock(
+          (downsample): Sequential(
+            (0): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (1): SyncBatchNorm(64, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+            (2): MishCuda()
+          )
+          (bn1): SyncBatchNorm(64, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (bn2): SyncBatchNorm(64, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (activation): MishCuda()
+        )
+        (1): DarkBlock(
+          (bn1): SyncBatchNorm(64, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (bn2): SyncBatchNorm(64, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (activation): MishCuda()
+        )
+      )
+      (partial_transition2): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): SyncBatchNorm(64, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+        (2): MishCuda()
+      )
+      (fuse_transition): Sequential(
+        (0): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): SyncBatchNorm(128, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+        (2): MishCuda()
+      )
+    )
+    (layer3): CrossStagePartialBlock(
+      (base_layer): Sequential(
+        (0): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (1): SyncBatchNorm(256, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+        (2): MishCuda()
+      )
+      (partial_transition1): Sequential(
+        (0): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): SyncBatchNorm(128, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+        (2): MishCuda()
+      )
+      (stage_layers): Sequential(
+        (0): DarkBlock(
+          (downsample): Sequential(
+            (0): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (1): SyncBatchNorm(128, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+            (2): MishCuda()
+          )
+          (bn1): SyncBatchNorm(128, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (bn2): SyncBatchNorm(128, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (conv1): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (activation): MishCuda()
+        )
+        (1): DarkBlock(
+          (bn1): SyncBatchNorm(128, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (bn2): SyncBatchNorm(128, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (conv1): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (activation): MishCuda()
+        )
+        (2): DarkBlock(
+          (bn1): SyncBatchNorm(128, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (bn2): SyncBatchNorm(128, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (conv1): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (activation): MishCuda()
+        )
+        (3): DarkBlock(
+          (bn1): SyncBatchNorm(128, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (bn2): SyncBatchNorm(128, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (conv1): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (activation): MishCuda()
+        )
+        (4): DarkBlock(
+          (bn1): SyncBatchNorm(128, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (bn2): SyncBatchNorm(128, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (conv1): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (activation): MishCuda()
+        )
+        (5): DarkBlock(
+          (bn1): SyncBatchNorm(128, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (bn2): SyncBatchNorm(128, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (conv1): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (activation): MishCuda()
+        )
+        (6): DarkBlock(
+          (bn1): SyncBatchNorm(128, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (bn2): SyncBatchNorm(128, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (conv1): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (activation): MishCuda()
+        )
+        (7): DarkBlock(
+          (bn1): SyncBatchNorm(128, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (bn2): SyncBatchNorm(128, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (conv1): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (activation): MishCuda()
+        )
+      )
+      (partial_transition2): Sequential(
+        (0): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): SyncBatchNorm(128, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+        (2): MishCuda()
+      )
+      (fuse_transition): Sequential(
+        (0): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): SyncBatchNorm(256, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+        (2): MishCuda()
+      )
+    )
+    (layer4): CrossStagePartialBlock(
+      (base_layer): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (1): SyncBatchNorm(512, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+        (2): MishCuda()
+      )
+      (partial_transition1): Sequential(
+        (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): SyncBatchNorm(256, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+        (2): MishCuda()
+      )
+      (stage_layers): Sequential(
+        (0): DarkBlock(
+          (downsample): Sequential(
+            (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (1): SyncBatchNorm(256, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+            (2): MishCuda()
+          )
+          (bn1): SyncBatchNorm(256, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (bn2): SyncBatchNorm(256, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (conv1): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (activation): MishCuda()
+        )
+        (1): DarkBlock(
+          (bn1): SyncBatchNorm(256, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (bn2): SyncBatchNorm(256, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (conv1): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (activation): MishCuda()
+        )
+        (2): DarkBlock(
+          (bn1): SyncBatchNorm(256, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (bn2): SyncBatchNorm(256, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (conv1): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (activation): MishCuda()
+        )
+        (3): DarkBlock(
+          (bn1): SyncBatchNorm(256, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (bn2): SyncBatchNorm(256, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (conv1): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (activation): MishCuda()
+        )
+        (4): DarkBlock(
+          (bn1): SyncBatchNorm(256, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (bn2): SyncBatchNorm(256, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (conv1): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (activation): MishCuda()
+        )
+        (5): DarkBlock(
+          (bn1): SyncBatchNorm(256, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (bn2): SyncBatchNorm(256, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (conv1): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (activation): MishCuda()
+        )
+        (6): DarkBlock(
+          (bn1): SyncBatchNorm(256, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (bn2): SyncBatchNorm(256, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (conv1): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (activation): MishCuda()
+        )
+        (7): DarkBlock(
+          (bn1): SyncBatchNorm(256, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (bn2): SyncBatchNorm(256, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (conv1): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (activation): MishCuda()
+        )
+      )
+      (partial_transition2): Sequential(
+        (0): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): SyncBatchNorm(256, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+        (2): MishCuda()
+      )
+      (fuse_transition): Sequential(
+        (0): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): SyncBatchNorm(512, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+        (2): MishCuda()
+      )
+    )
+    (layer5): CrossStagePartialBlock(
+      (base_layer): Sequential(
+        (0): Conv2d(512, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (1): SyncBatchNorm(1024, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+        (2): MishCuda()
+      )
+      (partial_transition1): Sequential(
+        (0): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): SyncBatchNorm(512, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+        (2): MishCuda()
+      )
+      (stage_layers): Sequential(
+        (0): DarkBlock(
+          (downsample): Sequential(
+            (0): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (1): SyncBatchNorm(512, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+            (2): MishCuda()
+          )
+          (bn1): SyncBatchNorm(512, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (bn2): SyncBatchNorm(512, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (conv1): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+          (activation): MishCuda()
+        )
+        (1): DarkBlock(
+          (bn1): SyncBatchNorm(512, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (bn2): SyncBatchNorm(512, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (conv1): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+          (activation): MishCuda()
+        )
+        (2): DarkBlock(
+          (bn1): SyncBatchNorm(512, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (bn2): SyncBatchNorm(512, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (conv1): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+          (activation): MishCuda()
+        )
+        (3): DarkBlock(
+          (bn1): SyncBatchNorm(512, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (bn2): SyncBatchNorm(512, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+          (conv1): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+          (activation): MishCuda()
+        )
+      )
+      (partial_transition2): Sequential(
+        (0): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): SyncBatchNorm(512, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+        (2): MishCuda()
+      )
+      (fuse_transition): Sequential(
+        (0): Conv2d(1024, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): SyncBatchNorm(1024, eps=0.0001, momentum=0.03, affine=True, track_running_stats=True)
+        (2): MishCuda()
+      )
+    )
+  )
+  (encoder): DilatedEncoder(
+    (lateral_conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1))
+    (lateral_norm): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (fpn_conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (fpn_norm): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (dilated_encoder_blocks): Sequential(
+      (0): Bottleneck(
+        (conv1): Sequential(
+          (0): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1))
+          (1): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): Sequential(
+          (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv3): Sequential(
+          (0): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1))
+          (1): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Sequential(
+          (0): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1))
+          (1): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): Sequential(
+          (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+          (1): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv3): Sequential(
+          (0): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1))
+          (1): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (2): Bottleneck(
+        (conv1): Sequential(
+          (0): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1))
+          (1): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): Sequential(
+          (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(3, 3), dilation=(3, 3))
+          (1): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv3): Sequential(
+          (0): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1))
+          (1): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (3): Bottleneck(
+        (conv1): Sequential(
+          (0): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1))
+          (1): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): Sequential(
+          (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(4, 4), dilation=(4, 4))
+          (1): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv3): Sequential(
+          (0): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1))
+          (1): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (4): Bottleneck(
+        (conv1): Sequential(
+          (0): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1))
+          (1): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): Sequential(
+          (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(5, 5), dilation=(5, 5))
+          (1): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv3): Sequential(
+          (0): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1))
+          (1): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (5): Bottleneck(
+        (conv1): Sequential(
+          (0): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1))
+          (1): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): Sequential(
+          (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(6, 6), dilation=(6, 6))
+          (1): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv3): Sequential(
+          (0): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1))
+          (1): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (6): Bottleneck(
+        (conv1): Sequential(
+          (0): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1))
+          (1): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): Sequential(
+          (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(7, 7), dilation=(7, 7))
+          (1): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv3): Sequential(
+          (0): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1))
+          (1): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+      (7): Bottleneck(
+        (conv1): Sequential(
+          (0): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1))
+          (1): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv2): Sequential(
+          (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(8, 8), dilation=(8, 8))
+          (1): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+        (conv3): Sequential(
+          (0): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1))
+          (1): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): LeakyReLU(negative_slope=0.1, inplace=True)
+        )
+      )
+    )
+  )
+  (decoder): Decoder(
+    (cls_subnet): Sequential(
+      (0): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (1): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): LeakyReLU(negative_slope=0.1, inplace=True)
+      (3): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (4): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): LeakyReLU(negative_slope=0.1, inplace=True)
+    )
+    (bbox_subnet): Sequential(
+      (0): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (1): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): LeakyReLU(negative_slope=0.1, inplace=True)
+      (3): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (4): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): LeakyReLU(negative_slope=0.1, inplace=True)
+      (6): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (7): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (8): LeakyReLU(negative_slope=0.1, inplace=True)
+      (9): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (10): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (11): LeakyReLU(negative_slope=0.1, inplace=True)
+    )
+    (cls_score): Conv2d(512, 480, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (bbox_pred): Conv2d(512, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (object_pred): Conv2d(512, 6, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  )
+  (anchor_generator): DefaultAnchorGenerator(
+    (cell_anchors): BufferList()
+  )
+  (anchor_matcher): UniformMatcher()
+)
+[12/08 04:46:30] fvcore.common.checkpoint INFO: [Checkpointer] Loading from /content/YOLOFtest/out_weights/YOLOF_CSP_D_53_DC5_9x.pth ...
+[12/08 04:46:32] d2.data.datasets.coco WARNING: 
+Category ids in annotations are not in [1, #categories]! We'll apply a mapping for you.
+
+[12/08 04:46:32] d2.data.datasets.coco INFO: Loaded 5000 images in COCO format from /content/YOLOFtest/datasets/coco/annotations/instances_val2017.json
+[12/08 04:46:32] d2.data.build INFO: Distribution of instances among all 80 categories:
+[36m|   category    | #instances   |   category   | #instances   |   category    | #instances   |
+|:-------------:|:-------------|:------------:|:-------------|:-------------:|:-------------|
+|    person     | 10777        |   bicycle    | 314          |      car      | 1918         |
+|  motorcycle   | 367          |   airplane   | 143          |      bus      | 283          |
+|     train     | 190          |    truck     | 414          |     boat      | 424          |
+| traffic light | 634          | fire hydrant | 101          |   stop sign   | 75           |
+| parking meter | 60           |    bench     | 411          |     bird      | 427          |
+|      cat      | 202          |     dog      | 218          |     horse     | 272          |
+|     sheep     | 354          |     cow      | 372          |   elephant    | 252          |
+|     bear      | 71           |    zebra     | 266          |    giraffe    | 232          |
+|   backpack    | 371          |   umbrella   | 407          |    handbag    | 540          |
+|      tie      | 252          |   suitcase   | 299          |    frisbee    | 115          |
+|     skis      | 241          |  snowboard   | 69           |  sports ball  | 260          |
+|     kite      | 327          | baseball bat | 145          | baseball gl.. | 148          |
+|  skateboard   | 179          |  surfboard   | 267          | tennis racket | 225          |
+|    bottle     | 1013         |  wine glass  | 341          |      cup      | 895          |
+|     fork      | 215          |    knife     | 325          |     spoon     | 253          |
+|     bowl      | 623          |    banana    | 370          |     apple     | 236          |
+|   sandwich    | 177          |    orange    | 285          |   broccoli    | 312          |
+|    carrot     | 365          |   hot dog    | 125          |     pizza     | 284          |
+|     donut     | 328          |     cake     | 310          |     chair     | 1771         |
+|     couch     | 261          | potted plant | 342          |      bed      | 163          |
+| dining table  | 695          |    toilet    | 179          |      tv       | 288          |
+|    laptop     | 231          |    mouse     | 106          |    remote     | 283          |
+|   keyboard    | 153          |  cell phone  | 262          |   microwave   | 55           |
+|     oven      | 143          |   toaster    | 9            |     sink      | 225          |
+| refrigerator  | 126          |     book     | 1129         |     clock     | 267          |
+|     vase      | 274          |   scissors   | 36           |  teddy bear   | 190          |
+|  hair drier   | 11           |  toothbrush  | 57           |               |              |
+|     total     | 36335        |              |              |               |              |[0m
+[12/08 04:46:32] d2.data.common INFO: Serializing 5000 elements to byte tensors and concatenating them all ...
+[12/08 04:46:32] d2.data.common INFO: Serialized dataset takes 19.22 MiB
+[12/08 04:46:33] d2.evaluation.evaluator INFO: Start inference on 5000 batches
+[12/08 04:46:36] d2.evaluation.evaluator INFO: Inference done 11/5000. Dataloading: 0.0013 s/iter. Inference: 0.1850 s/iter. Eval: 0.0004 s/iter. Total: 0.1867 s/iter. ETA=0:15:31
+[12/08 04:46:41] d2.evaluation.evaluator INFO: Inference done 40/5000. Dataloading: 0.0018 s/iter. Inference: 0.1764 s/iter. Eval: 0.0004 s/iter. Total: 0.1787 s/iter. ETA=0:14:46
+[12/08 04:46:46] d2.evaluation.evaluator INFO: Inference done 69/5000. Dataloading: 0.0017 s/iter. Inference: 0.1758 s/iter. Eval: 0.0004 s/iter. Total: 0.1780 s/iter. ETA=0:14:37
+[12/08 04:46:51] d2.evaluation.evaluator INFO: Inference done 98/5000. Dataloading: 0.0018 s/iter. Inference: 0.1757 s/iter. Eval: 0.0004 s/iter. Total: 0.1780 s/iter. ETA=0:14:32
+[12/08 04:46:56] d2.evaluation.evaluator INFO: Inference done 126/5000. Dataloading: 0.0018 s/iter. Inference: 0.1759 s/iter. Eval: 0.0004 s/iter. Total: 0.1782 s/iter. ETA=0:14:28
+[12/08 04:47:01] d2.evaluation.evaluator INFO: Inference done 155/5000. Dataloading: 0.0018 s/iter. Inference: 0.1759 s/iter. Eval: 0.0004 s/iter. Total: 0.1782 s/iter. ETA=0:14:23
+[12/08 04:47:06] d2.evaluation.evaluator INFO: Inference done 183/5000. Dataloading: 0.0017 s/iter. Inference: 0.1761 s/iter. Eval: 0.0004 s/iter. Total: 0.1784 s/iter. ETA=0:14:19
+[12/08 04:47:11] d2.evaluation.evaluator INFO: Inference done 211/5000. Dataloading: 0.0018 s/iter. Inference: 0.1764 s/iter. Eval: 0.0004 s/iter. Total: 0.1787 s/iter. ETA=0:14:15
+[12/08 04:47:16] d2.evaluation.evaluator INFO: Inference done 239/5000. Dataloading: 0.0018 s/iter. Inference: 0.1767 s/iter. Eval: 0.0004 s/iter. Total: 0.1789 s/iter. ETA=0:14:11
+[12/08 04:47:21] d2.evaluation.evaluator INFO: Inference done 267/5000. Dataloading: 0.0017 s/iter. Inference: 0.1769 s/iter. Eval: 0.0004 s/iter. Total: 0.1791 s/iter. ETA=0:14:07
+[12/08 04:47:26] d2.evaluation.evaluator INFO: Inference done 295/5000. Dataloading: 0.0017 s/iter. Inference: 0.1772 s/iter. Eval: 0.0004 s/iter. Total: 0.1794 s/iter. ETA=0:14:04
+[12/08 04:47:32] d2.evaluation.evaluator INFO: Inference done 323/5000. Dataloading: 0.0017 s/iter. Inference: 0.1774 s/iter. Eval: 0.0004 s/iter. Total: 0.1796 s/iter. ETA=0:14:00
+[12/08 04:47:37] d2.evaluation.evaluator INFO: Inference done 351/5000. Dataloading: 0.0017 s/iter. Inference: 0.1777 s/iter. Eval: 0.0004 s/iter. Total: 0.1799 s/iter. ETA=0:13:56
+[12/08 04:47:42] d2.evaluation.evaluator INFO: Inference done 379/5000. Dataloading: 0.0017 s/iter. Inference: 0.1780 s/iter. Eval: 0.0004 s/iter. Total: 0.1802 s/iter. ETA=0:13:52
+[12/08 04:47:47] d2.evaluation.evaluator INFO: Inference done 407/5000. Dataloading: 0.0017 s/iter. Inference: 0.1782 s/iter. Eval: 0.0004 s/iter. Total: 0.1805 s/iter. ETA=0:13:48
+[12/08 04:47:52] d2.evaluation.evaluator INFO: Inference done 435/5000. Dataloading: 0.0018 s/iter. Inference: 0.1785 s/iter. Eval: 0.0004 s/iter. Total: 0.1808 s/iter. ETA=0:13:45
+[12/08 04:47:57] d2.evaluation.evaluator INFO: Inference done 463/5000. Dataloading: 0.0018 s/iter. Inference: 0.1787 s/iter. Eval: 0.0004 s/iter. Total: 0.1810 s/iter. ETA=0:13:41
+[12/08 04:48:03] d2.evaluation.evaluator INFO: Inference done 491/5000. Dataloading: 0.0018 s/iter. Inference: 0.1789 s/iter. Eval: 0.0004 s/iter. Total: 0.1812 s/iter. ETA=0:13:36
+[12/08 04:48:08] d2.evaluation.evaluator INFO: Inference done 519/5000. Dataloading: 0.0018 s/iter. Inference: 0.1791 s/iter. Eval: 0.0004 s/iter. Total: 0.1813 s/iter. ETA=0:13:32
+[12/08 04:48:13] d2.evaluation.evaluator INFO: Inference done 547/5000. Dataloading: 0.0018 s/iter. Inference: 0.1792 s/iter. Eval: 0.0004 s/iter. Total: 0.1815 s/iter. ETA=0:13:28
+[12/08 04:48:18] d2.evaluation.evaluator INFO: Inference done 575/5000. Dataloading: 0.0018 s/iter. Inference: 0.1794 s/iter. Eval: 0.0004 s/iter. Total: 0.1817 s/iter. ETA=0:13:23
+[12/08 04:48:23] d2.evaluation.evaluator INFO: Inference done 603/5000. Dataloading: 0.0018 s/iter. Inference: 0.1795 s/iter. Eval: 0.0004 s/iter. Total: 0.1818 s/iter. ETA=0:13:19
+[12/08 04:48:28] d2.evaluation.evaluator INFO: Inference done 631/5000. Dataloading: 0.0018 s/iter. Inference: 0.1796 s/iter. Eval: 0.0004 s/iter. Total: 0.1819 s/iter. ETA=0:13:14
+[12/08 04:48:33] d2.evaluation.evaluator INFO: Inference done 658/5000. Dataloading: 0.0018 s/iter. Inference: 0.1800 s/iter. Eval: 0.0004 s/iter. Total: 0.1823 s/iter. ETA=0:13:11
+[12/08 04:48:39] d2.evaluation.evaluator INFO: Inference done 686/5000. Dataloading: 0.0018 s/iter. Inference: 0.1801 s/iter. Eval: 0.0004 s/iter. Total: 0.1824 s/iter. ETA=0:13:06
+[12/08 04:48:44] d2.evaluation.evaluator INFO: Inference done 714/5000. Dataloading: 0.0018 s/iter. Inference: 0.1802 s/iter. Eval: 0.0004 s/iter. Total: 0.1825 s/iter. ETA=0:13:02
+[12/08 04:48:49] d2.evaluation.evaluator INFO: Inference done 742/5000. Dataloading: 0.0018 s/iter. Inference: 0.1803 s/iter. Eval: 0.0004 s/iter. Total: 0.1825 s/iter. ETA=0:12:57
+[12/08 04:48:54] d2.evaluation.evaluator INFO: Inference done 770/5000. Dataloading: 0.0018 s/iter. Inference: 0.1803 s/iter. Eval: 0.0004 s/iter. Total: 0.1826 s/iter. ETA=0:12:52
+[12/08 04:48:59] d2.evaluation.evaluator INFO: Inference done 798/5000. Dataloading: 0.0018 s/iter. Inference: 0.1804 s/iter. Eval: 0.0004 s/iter. Total: 0.1827 s/iter. ETA=0:12:47
+[12/08 04:49:04] d2.evaluation.evaluator INFO: Inference done 826/5000. Dataloading: 0.0018 s/iter. Inference: 0.1804 s/iter. Eval: 0.0004 s/iter. Total: 0.1827 s/iter. ETA=0:12:42
+[12/08 04:49:10] d2.evaluation.evaluator INFO: Inference done 854/5000. Dataloading: 0.0018 s/iter. Inference: 0.1805 s/iter. Eval: 0.0004 s/iter. Total: 0.1828 s/iter. ETA=0:12:37
+[12/08 04:49:15] d2.evaluation.evaluator INFO: Inference done 882/5000. Dataloading: 0.0018 s/iter. Inference: 0.1805 s/iter. Eval: 0.0004 s/iter. Total: 0.1828 s/iter. ETA=0:12:32
+[12/08 04:49:20] d2.evaluation.evaluator INFO: Inference done 910/5000. Dataloading: 0.0018 s/iter. Inference: 0.1806 s/iter. Eval: 0.0004 s/iter. Total: 0.1829 s/iter. ETA=0:12:28
+[12/08 04:49:25] d2.evaluation.evaluator INFO: Inference done 938/5000. Dataloading: 0.0018 s/iter. Inference: 0.1806 s/iter. Eval: 0.0004 s/iter. Total: 0.1829 s/iter. ETA=0:12:23
+[12/08 04:49:30] d2.evaluation.evaluator INFO: Inference done 966/5000. Dataloading: 0.0018 s/iter. Inference: 0.1807 s/iter. Eval: 0.0004 s/iter. Total: 0.1830 s/iter. ETA=0:12:18
+[12/08 04:49:36] d2.evaluation.evaluator INFO: Inference done 994/5000. Dataloading: 0.0019 s/iter. Inference: 0.1807 s/iter. Eval: 0.0004 s/iter. Total: 0.1831 s/iter. ETA=0:12:13
+[12/08 04:49:41] d2.evaluation.evaluator INFO: Inference done 1022/5000. Dataloading: 0.0018 s/iter. Inference: 0.1808 s/iter. Eval: 0.0004 s/iter. Total: 0.1831 s/iter. ETA=0:12:08
+[12/08 04:49:46] d2.evaluation.evaluator INFO: Inference done 1050/5000. Dataloading: 0.0018 s/iter. Inference: 0.1808 s/iter. Eval: 0.0004 s/iter. Total: 0.1831 s/iter. ETA=0:12:03
+[12/08 04:49:51] d2.evaluation.evaluator INFO: Inference done 1078/5000. Dataloading: 0.0018 s/iter. Inference: 0.1808 s/iter. Eval: 0.0004 s/iter. Total: 0.1832 s/iter. ETA=0:11:58
+[12/08 04:49:56] d2.evaluation.evaluator INFO: Inference done 1106/5000. Dataloading: 0.0018 s/iter. Inference: 0.1809 s/iter. Eval: 0.0004 s/iter. Total: 0.1832 s/iter. ETA=0:11:53
+[12/08 04:50:01] d2.evaluation.evaluator INFO: Inference done 1134/5000. Dataloading: 0.0018 s/iter. Inference: 0.1809 s/iter. Eval: 0.0004 s/iter. Total: 0.1832 s/iter. ETA=0:11:48
+[12/08 04:50:07] d2.evaluation.evaluator INFO: Inference done 1162/5000. Dataloading: 0.0018 s/iter. Inference: 0.1809 s/iter. Eval: 0.0004 s/iter. Total: 0.1833 s/iter. ETA=0:11:43
+[12/08 04:50:12] d2.evaluation.evaluator INFO: Inference done 1190/5000. Dataloading: 0.0018 s/iter. Inference: 0.1810 s/iter. Eval: 0.0004 s/iter. Total: 0.1833 s/iter. ETA=0:11:38
+[12/08 04:50:17] d2.evaluation.evaluator INFO: Inference done 1218/5000. Dataloading: 0.0018 s/iter. Inference: 0.1810 s/iter. Eval: 0.0004 s/iter. Total: 0.1833 s/iter. ETA=0:11:33
+[12/08 04:50:22] d2.evaluation.evaluator INFO: Inference done 1246/5000. Dataloading: 0.0018 s/iter. Inference: 0.1810 s/iter. Eval: 0.0004 s/iter. Total: 0.1834 s/iter. ETA=0:11:28
+[12/08 04:50:27] d2.evaluation.evaluator INFO: Inference done 1274/5000. Dataloading: 0.0019 s/iter. Inference: 0.1811 s/iter. Eval: 0.0004 s/iter. Total: 0.1834 s/iter. ETA=0:11:23
+[12/08 04:50:32] d2.evaluation.evaluator INFO: Inference done 1302/5000. Dataloading: 0.0018 s/iter. Inference: 0.1811 s/iter. Eval: 0.0004 s/iter. Total: 0.1834 s/iter. ETA=0:11:18
+[12/08 04:50:38] d2.evaluation.evaluator INFO: Inference done 1330/5000. Dataloading: 0.0018 s/iter. Inference: 0.1811 s/iter. Eval: 0.0004 s/iter. Total: 0.1834 s/iter. ETA=0:11:13
+[12/08 04:50:43] d2.evaluation.evaluator INFO: Inference done 1358/5000. Dataloading: 0.0018 s/iter. Inference: 0.1811 s/iter. Eval: 0.0004 s/iter. Total: 0.1835 s/iter. ETA=0:11:08
+[12/08 04:50:48] d2.evaluation.evaluator INFO: Inference done 1385/5000. Dataloading: 0.0019 s/iter. Inference: 0.1811 s/iter. Eval: 0.0004 s/iter. Total: 0.1835 s/iter. ETA=0:11:03
+[12/08 04:50:53] d2.evaluation.evaluator INFO: Inference done 1413/5000. Dataloading: 0.0019 s/iter. Inference: 0.1812 s/iter. Eval: 0.0004 s/iter. Total: 0.1835 s/iter. ETA=0:10:58
+[12/08 04:50:58] d2.evaluation.evaluator INFO: Inference done 1441/5000. Dataloading: 0.0019 s/iter. Inference: 0.1812 s/iter. Eval: 0.0004 s/iter. Total: 0.1835 s/iter. ETA=0:10:53
+[12/08 04:51:03] d2.evaluation.evaluator INFO: Inference done 1468/5000. Dataloading: 0.0019 s/iter. Inference: 0.1812 s/iter. Eval: 0.0005 s/iter. Total: 0.1837 s/iter. ETA=0:10:48
+[12/08 04:51:08] d2.evaluation.evaluator INFO: Inference done 1496/5000. Dataloading: 0.0019 s/iter. Inference: 0.1812 s/iter. Eval: 0.0005 s/iter. Total: 0.1837 s/iter. ETA=0:10:43
+[12/08 04:51:14] d2.evaluation.evaluator INFO: Inference done 1524/5000. Dataloading: 0.0019 s/iter. Inference: 0.1812 s/iter. Eval: 0.0005 s/iter. Total: 0.1837 s/iter. ETA=0:10:38
+[12/08 04:51:19] d2.evaluation.evaluator INFO: Inference done 1552/5000. Dataloading: 0.0019 s/iter. Inference: 0.1813 s/iter. Eval: 0.0005 s/iter. Total: 0.1837 s/iter. ETA=0:10:33
+[12/08 04:51:24] d2.evaluation.evaluator INFO: Inference done 1580/5000. Dataloading: 0.0019 s/iter. Inference: 0.1813 s/iter. Eval: 0.0005 s/iter. Total: 0.1837 s/iter. ETA=0:10:28
+[12/08 04:51:29] d2.evaluation.evaluator INFO: Inference done 1608/5000. Dataloading: 0.0019 s/iter. Inference: 0.1813 s/iter. Eval: 0.0005 s/iter. Total: 0.1838 s/iter. ETA=0:10:23
+[12/08 04:51:34] d2.evaluation.evaluator INFO: Inference done 1636/5000. Dataloading: 0.0019 s/iter. Inference: 0.1813 s/iter. Eval: 0.0005 s/iter. Total: 0.1838 s/iter. ETA=0:10:18
+[12/08 04:51:39] d2.evaluation.evaluator INFO: Inference done 1664/5000. Dataloading: 0.0019 s/iter. Inference: 0.1813 s/iter. Eval: 0.0005 s/iter. Total: 0.1838 s/iter. ETA=0:10:13
+[12/08 04:51:45] d2.evaluation.evaluator INFO: Inference done 1692/5000. Dataloading: 0.0019 s/iter. Inference: 0.1813 s/iter. Eval: 0.0005 s/iter. Total: 0.1838 s/iter. ETA=0:10:07
+[12/08 04:51:50] d2.evaluation.evaluator INFO: Inference done 1720/5000. Dataloading: 0.0019 s/iter. Inference: 0.1814 s/iter. Eval: 0.0005 s/iter. Total: 0.1838 s/iter. ETA=0:10:02
+[12/08 04:51:55] d2.evaluation.evaluator INFO: Inference done 1748/5000. Dataloading: 0.0019 s/iter. Inference: 0.1814 s/iter. Eval: 0.0005 s/iter. Total: 0.1838 s/iter. ETA=0:09:57
+[12/08 04:52:00] d2.evaluation.evaluator INFO: Inference done 1776/5000. Dataloading: 0.0019 s/iter. Inference: 0.1814 s/iter. Eval: 0.0005 s/iter. Total: 0.1838 s/iter. ETA=0:09:52
+[12/08 04:52:05] d2.evaluation.evaluator INFO: Inference done 1804/5000. Dataloading: 0.0019 s/iter. Inference: 0.1814 s/iter. Eval: 0.0005 s/iter. Total: 0.1838 s/iter. ETA=0:09:47
+[12/08 04:52:10] d2.evaluation.evaluator INFO: Inference done 1832/5000. Dataloading: 0.0019 s/iter. Inference: 0.1814 s/iter. Eval: 0.0005 s/iter. Total: 0.1838 s/iter. ETA=0:09:42
+[12/08 04:52:16] d2.evaluation.evaluator INFO: Inference done 1860/5000. Dataloading: 0.0019 s/iter. Inference: 0.1814 s/iter. Eval: 0.0005 s/iter. Total: 0.1839 s/iter. ETA=0:09:37
+[12/08 04:52:21] d2.evaluation.evaluator INFO: Inference done 1888/5000. Dataloading: 0.0019 s/iter. Inference: 0.1814 s/iter. Eval: 0.0005 s/iter. Total: 0.1839 s/iter. ETA=0:09:32
+[12/08 04:52:26] d2.evaluation.evaluator INFO: Inference done 1916/5000. Dataloading: 0.0019 s/iter. Inference: 0.1814 s/iter. Eval: 0.0005 s/iter. Total: 0.1839 s/iter. ETA=0:09:27
+[12/08 04:52:31] d2.evaluation.evaluator INFO: Inference done 1944/5000. Dataloading: 0.0019 s/iter. Inference: 0.1815 s/iter. Eval: 0.0005 s/iter. Total: 0.1839 s/iter. ETA=0:09:21
+[12/08 04:52:36] d2.evaluation.evaluator INFO: Inference done 1972/5000. Dataloading: 0.0019 s/iter. Inference: 0.1815 s/iter. Eval: 0.0005 s/iter. Total: 0.1839 s/iter. ETA=0:09:16
+[12/08 04:52:41] d2.evaluation.evaluator INFO: Inference done 2000/5000. Dataloading: 0.0019 s/iter. Inference: 0.1815 s/iter. Eval: 0.0005 s/iter. Total: 0.1839 s/iter. ETA=0:09:11
+[12/08 04:52:47] d2.evaluation.evaluator INFO: Inference done 2028/5000. Dataloading: 0.0019 s/iter. Inference: 0.1815 s/iter. Eval: 0.0005 s/iter. Total: 0.1839 s/iter. ETA=0:09:06
+[12/08 04:52:52] d2.evaluation.evaluator INFO: Inference done 2056/5000. Dataloading: 0.0019 s/iter. Inference: 0.1815 s/iter. Eval: 0.0005 s/iter. Total: 0.1839 s/iter. ETA=0:09:01
+[12/08 04:52:57] d2.evaluation.evaluator INFO: Inference done 2083/5000. Dataloading: 0.0019 s/iter. Inference: 0.1815 s/iter. Eval: 0.0005 s/iter. Total: 0.1839 s/iter. ETA=0:08:56
+[12/08 04:53:02] d2.evaluation.evaluator INFO: Inference done 2111/5000. Dataloading: 0.0019 s/iter. Inference: 0.1815 s/iter. Eval: 0.0005 s/iter. Total: 0.1839 s/iter. ETA=0:08:51
+[12/08 04:53:07] d2.evaluation.evaluator INFO: Inference done 2139/5000. Dataloading: 0.0019 s/iter. Inference: 0.1815 s/iter. Eval: 0.0005 s/iter. Total: 0.1839 s/iter. ETA=0:08:46
+[12/08 04:53:12] d2.evaluation.evaluator INFO: Inference done 2166/5000. Dataloading: 0.0019 s/iter. Inference: 0.1815 s/iter. Eval: 0.0005 s/iter. Total: 0.1840 s/iter. ETA=0:08:41
+[12/08 04:53:17] d2.evaluation.evaluator INFO: Inference done 2194/5000. Dataloading: 0.0019 s/iter. Inference: 0.1816 s/iter. Eval: 0.0005 s/iter. Total: 0.1840 s/iter. ETA=0:08:36
+[12/08 04:53:22] d2.evaluation.evaluator INFO: Inference done 2222/5000. Dataloading: 0.0019 s/iter. Inference: 0.1816 s/iter. Eval: 0.0005 s/iter. Total: 0.1840 s/iter. ETA=0:08:31
+[12/08 04:53:28] d2.evaluation.evaluator INFO: Inference done 2250/5000. Dataloading: 0.0019 s/iter. Inference: 0.1816 s/iter. Eval: 0.0005 s/iter. Total: 0.1840 s/iter. ETA=0:08:25
+[12/08 04:53:33] d2.evaluation.evaluator INFO: Inference done 2277/5000. Dataloading: 0.0019 s/iter. Inference: 0.1816 s/iter. Eval: 0.0005 s/iter. Total: 0.1840 s/iter. ETA=0:08:21
+[12/08 04:53:38] d2.evaluation.evaluator INFO: Inference done 2305/5000. Dataloading: 0.0019 s/iter. Inference: 0.1816 s/iter. Eval: 0.0005 s/iter. Total: 0.1840 s/iter. ETA=0:08:15
+[12/08 04:53:43] d2.evaluation.evaluator INFO: Inference done 2333/5000. Dataloading: 0.0019 s/iter. Inference: 0.1816 s/iter. Eval: 0.0005 s/iter. Total: 0.1840 s/iter. ETA=0:08:10
+[12/08 04:53:48] d2.evaluation.evaluator INFO: Inference done 2361/5000. Dataloading: 0.0019 s/iter. Inference: 0.1816 s/iter. Eval: 0.0005 s/iter. Total: 0.1840 s/iter. ETA=0:08:05
+[12/08 04:53:53] d2.evaluation.evaluator INFO: Inference done 2389/5000. Dataloading: 0.0019 s/iter. Inference: 0.1816 s/iter. Eval: 0.0005 s/iter. Total: 0.1840 s/iter. ETA=0:08:00
+[12/08 04:53:58] d2.evaluation.evaluator INFO: Inference done 2417/5000. Dataloading: 0.0019 s/iter. Inference: 0.1816 s/iter. Eval: 0.0005 s/iter. Total: 0.1840 s/iter. ETA=0:07:55
+[12/08 04:54:03] d2.evaluation.evaluator INFO: Inference done 2444/5000. Dataloading: 0.0019 s/iter. Inference: 0.1817 s/iter. Eval: 0.0005 s/iter. Total: 0.1841 s/iter. ETA=0:07:50
+[12/08 04:54:09] d2.evaluation.evaluator INFO: Inference done 2472/5000. Dataloading: 0.0019 s/iter. Inference: 0.1817 s/iter. Eval: 0.0005 s/iter. Total: 0.1841 s/iter. ETA=0:07:45
+[12/08 04:54:14] d2.evaluation.evaluator INFO: Inference done 2500/5000. Dataloading: 0.0019 s/iter. Inference: 0.1817 s/iter. Eval: 0.0005 s/iter. Total: 0.1841 s/iter. ETA=0:07:40
+[12/08 04:54:19] d2.evaluation.evaluator INFO: Inference done 2528/5000. Dataloading: 0.0019 s/iter. Inference: 0.1817 s/iter. Eval: 0.0005 s/iter. Total: 0.1841 s/iter. ETA=0:07:35
+[12/08 04:54:24] d2.evaluation.evaluator INFO: Inference done 2556/5000. Dataloading: 0.0019 s/iter. Inference: 0.1817 s/iter. Eval: 0.0005 s/iter. Total: 0.1841 s/iter. ETA=0:07:29
+[12/08 04:54:29] d2.evaluation.evaluator INFO: Inference done 2584/5000. Dataloading: 0.0019 s/iter. Inference: 0.1817 s/iter. Eval: 0.0005 s/iter. Total: 0.1841 s/iter. ETA=0:07:24
+[12/08 04:54:34] d2.evaluation.evaluator INFO: Inference done 2612/5000. Dataloading: 0.0019 s/iter. Inference: 0.1817 s/iter. Eval: 0.0005 s/iter. Total: 0.1841 s/iter. ETA=0:07:19
+[12/08 04:54:40] d2.evaluation.evaluator INFO: Inference done 2640/5000. Dataloading: 0.0019 s/iter. Inference: 0.1817 s/iter. Eval: 0.0005 s/iter. Total: 0.1841 s/iter. ETA=0:07:14
+[12/08 04:54:45] d2.evaluation.evaluator INFO: Inference done 2668/5000. Dataloading: 0.0019 s/iter. Inference: 0.1817 s/iter. Eval: 0.0005 s/iter. Total: 0.1841 s/iter. ETA=0:07:09
+[12/08 04:54:50] d2.evaluation.evaluator INFO: Inference done 2696/5000. Dataloading: 0.0019 s/iter. Inference: 0.1817 s/iter. Eval: 0.0005 s/iter. Total: 0.1841 s/iter. ETA=0:07:04
+[12/08 04:54:55] d2.evaluation.evaluator INFO: Inference done 2724/5000. Dataloading: 0.0019 s/iter. Inference: 0.1817 s/iter. Eval: 0.0005 s/iter. Total: 0.1841 s/iter. ETA=0:06:59
+[12/08 04:55:00] d2.evaluation.evaluator INFO: Inference done 2752/5000. Dataloading: 0.0019 s/iter. Inference: 0.1817 s/iter. Eval: 0.0005 s/iter. Total: 0.1841 s/iter. ETA=0:06:53
+[12/08 04:55:05] d2.evaluation.evaluator INFO: Inference done 2780/5000. Dataloading: 0.0019 s/iter. Inference: 0.1817 s/iter. Eval: 0.0005 s/iter. Total: 0.1841 s/iter. ETA=0:06:48
+[12/08 04:55:11] d2.evaluation.evaluator INFO: Inference done 2808/5000. Dataloading: 0.0019 s/iter. Inference: 0.1817 s/iter. Eval: 0.0005 s/iter. Total: 0.1841 s/iter. ETA=0:06:43
+[12/08 04:55:16] d2.evaluation.evaluator INFO: Inference done 2836/5000. Dataloading: 0.0019 s/iter. Inference: 0.1817 s/iter. Eval: 0.0005 s/iter. Total: 0.1841 s/iter. ETA=0:06:38
+[12/08 04:55:21] d2.evaluation.evaluator INFO: Inference done 2864/5000. Dataloading: 0.0018 s/iter. Inference: 0.1817 s/iter. Eval: 0.0005 s/iter. Total: 0.1841 s/iter. ETA=0:06:33
+[12/08 04:55:26] d2.evaluation.evaluator INFO: Inference done 2892/5000. Dataloading: 0.0018 s/iter. Inference: 0.1818 s/iter. Eval: 0.0005 s/iter. Total: 0.1841 s/iter. ETA=0:06:28
+[12/08 04:55:31] d2.evaluation.evaluator INFO: Inference done 2920/5000. Dataloading: 0.0018 s/iter. Inference: 0.1818 s/iter. Eval: 0.0005 s/iter. Total: 0.1841 s/iter. ETA=0:06:23
+[12/08 04:55:36] d2.evaluation.evaluator INFO: Inference done 2948/5000. Dataloading: 0.0018 s/iter. Inference: 0.1818 s/iter. Eval: 0.0005 s/iter. Total: 0.1841 s/iter. ETA=0:06:17
+[12/08 04:55:42] d2.evaluation.evaluator INFO: Inference done 2976/5000. Dataloading: 0.0018 s/iter. Inference: 0.1818 s/iter. Eval: 0.0005 s/iter. Total: 0.1841 s/iter. ETA=0:06:12
+[12/08 04:55:47] d2.evaluation.evaluator INFO: Inference done 3004/5000. Dataloading: 0.0018 s/iter. Inference: 0.1818 s/iter. Eval: 0.0005 s/iter. Total: 0.1841 s/iter. ETA=0:06:07
+[12/08 04:55:52] d2.evaluation.evaluator INFO: Inference done 3032/5000. Dataloading: 0.0018 s/iter. Inference: 0.1818 s/iter. Eval: 0.0005 s/iter. Total: 0.1842 s/iter. ETA=0:06:02
+[12/08 04:55:57] d2.evaluation.evaluator INFO: Inference done 3060/5000. Dataloading: 0.0018 s/iter. Inference: 0.1818 s/iter. Eval: 0.0005 s/iter. Total: 0.1842 s/iter. ETA=0:05:57
+[12/08 04:56:02] d2.evaluation.evaluator INFO: Inference done 3088/5000. Dataloading: 0.0018 s/iter. Inference: 0.1818 s/iter. Eval: 0.0005 s/iter. Total: 0.1842 s/iter. ETA=0:05:52
+[12/08 04:56:07] d2.evaluation.evaluator INFO: Inference done 3116/5000. Dataloading: 0.0018 s/iter. Inference: 0.1818 s/iter. Eval: 0.0005 s/iter. Total: 0.1842 s/iter. ETA=0:05:46
+[12/08 04:56:12] d2.evaluation.evaluator INFO: Inference done 3143/5000. Dataloading: 0.0019 s/iter. Inference: 0.1818 s/iter. Eval: 0.0005 s/iter. Total: 0.1842 s/iter. ETA=0:05:41
+[12/08 04:56:18] d2.evaluation.evaluator INFO: Inference done 3171/5000. Dataloading: 0.0019 s/iter. Inference: 0.1818 s/iter. Eval: 0.0005 s/iter. Total: 0.1842 s/iter. ETA=0:05:36
+[12/08 04:56:23] d2.evaluation.evaluator INFO: Inference done 3199/5000. Dataloading: 0.0019 s/iter. Inference: 0.1818 s/iter. Eval: 0.0005 s/iter. Total: 0.1842 s/iter. ETA=0:05:31
+[12/08 04:56:28] d2.evaluation.evaluator INFO: Inference done 3227/5000. Dataloading: 0.0019 s/iter. Inference: 0.1818 s/iter. Eval: 0.0004 s/iter. Total: 0.1842 s/iter. ETA=0:05:26
+[12/08 04:56:33] d2.evaluation.evaluator INFO: Inference done 3255/5000. Dataloading: 0.0019 s/iter. Inference: 0.1818 s/iter. Eval: 0.0004 s/iter. Total: 0.1842 s/iter. ETA=0:05:21
+[12/08 04:56:38] d2.evaluation.evaluator INFO: Inference done 3283/5000. Dataloading: 0.0019 s/iter. Inference: 0.1818 s/iter. Eval: 0.0004 s/iter. Total: 0.1842 s/iter. ETA=0:05:16
+[12/08 04:56:43] d2.evaluation.evaluator INFO: Inference done 3311/5000. Dataloading: 0.0019 s/iter. Inference: 0.1818 s/iter. Eval: 0.0004 s/iter. Total: 0.1842 s/iter. ETA=0:05:11
+[12/08 04:56:49] d2.evaluation.evaluator INFO: Inference done 3339/5000. Dataloading: 0.0019 s/iter. Inference: 0.1818 s/iter. Eval: 0.0004 s/iter. Total: 0.1842 s/iter. ETA=0:05:05
+[12/08 04:56:54] d2.evaluation.evaluator INFO: Inference done 3367/5000. Dataloading: 0.0019 s/iter. Inference: 0.1818 s/iter. Eval: 0.0004 s/iter. Total: 0.1842 s/iter. ETA=0:05:00
+[12/08 04:56:59] d2.evaluation.evaluator INFO: Inference done 3395/5000. Dataloading: 0.0019 s/iter. Inference: 0.1818 s/iter. Eval: 0.0004 s/iter. Total: 0.1842 s/iter. ETA=0:04:55
+[12/08 04:57:04] d2.evaluation.evaluator INFO: Inference done 3423/5000. Dataloading: 0.0019 s/iter. Inference: 0.1818 s/iter. Eval: 0.0004 s/iter. Total: 0.1842 s/iter. ETA=0:04:50
+[12/08 04:57:09] d2.evaluation.evaluator INFO: Inference done 3451/5000. Dataloading: 0.0019 s/iter. Inference: 0.1818 s/iter. Eval: 0.0004 s/iter. Total: 0.1842 s/iter. ETA=0:04:45
+[12/08 04:57:14] d2.evaluation.evaluator INFO: Inference done 3479/5000. Dataloading: 0.0019 s/iter. Inference: 0.1818 s/iter. Eval: 0.0004 s/iter. Total: 0.1842 s/iter. ETA=0:04:40
+[12/08 04:57:20] d2.evaluation.evaluator INFO: Inference done 3507/5000. Dataloading: 0.0019 s/iter. Inference: 0.1818 s/iter. Eval: 0.0004 s/iter. Total: 0.1842 s/iter. ETA=0:04:35
+[12/08 04:57:25] d2.evaluation.evaluator INFO: Inference done 3535/5000. Dataloading: 0.0019 s/iter. Inference: 0.1818 s/iter. Eval: 0.0004 s/iter. Total: 0.1842 s/iter. ETA=0:04:29
+[12/08 04:57:30] d2.evaluation.evaluator INFO: Inference done 3563/5000. Dataloading: 0.0019 s/iter. Inference: 0.1818 s/iter. Eval: 0.0004 s/iter. Total: 0.1842 s/iter. ETA=0:04:24
+[12/08 04:57:35] d2.evaluation.evaluator INFO: Inference done 3591/5000. Dataloading: 0.0019 s/iter. Inference: 0.1818 s/iter. Eval: 0.0004 s/iter. Total: 0.1842 s/iter. ETA=0:04:19
+[12/08 04:57:40] d2.evaluation.evaluator INFO: Inference done 3619/5000. Dataloading: 0.0019 s/iter. Inference: 0.1818 s/iter. Eval: 0.0004 s/iter. Total: 0.1842 s/iter. ETA=0:04:14
+[12/08 04:57:45] d2.evaluation.evaluator INFO: Inference done 3647/5000. Dataloading: 0.0019 s/iter. Inference: 0.1818 s/iter. Eval: 0.0004 s/iter. Total: 0.1842 s/iter. ETA=0:04:09
+[12/08 04:57:50] d2.evaluation.evaluator INFO: Inference done 3673/5000. Dataloading: 0.0019 s/iter. Inference: 0.1819 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:04:04
+[12/08 04:57:56] d2.evaluation.evaluator INFO: Inference done 3701/5000. Dataloading: 0.0019 s/iter. Inference: 0.1819 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:03:59
+[12/08 04:58:01] d2.evaluation.evaluator INFO: Inference done 3729/5000. Dataloading: 0.0019 s/iter. Inference: 0.1819 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:03:54
+[12/08 04:58:06] d2.evaluation.evaluator INFO: Inference done 3757/5000. Dataloading: 0.0019 s/iter. Inference: 0.1819 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:03:49
+[12/08 04:58:11] d2.evaluation.evaluator INFO: Inference done 3785/5000. Dataloading: 0.0019 s/iter. Inference: 0.1819 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:03:43
+[12/08 04:58:16] d2.evaluation.evaluator INFO: Inference done 3813/5000. Dataloading: 0.0019 s/iter. Inference: 0.1819 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:03:38
+[12/08 04:58:21] d2.evaluation.evaluator INFO: Inference done 3841/5000. Dataloading: 0.0019 s/iter. Inference: 0.1819 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:03:33
+[12/08 04:58:27] d2.evaluation.evaluator INFO: Inference done 3869/5000. Dataloading: 0.0019 s/iter. Inference: 0.1819 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:03:28
+[12/08 04:58:32] d2.evaluation.evaluator INFO: Inference done 3897/5000. Dataloading: 0.0019 s/iter. Inference: 0.1819 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:03:23
+[12/08 04:58:37] d2.evaluation.evaluator INFO: Inference done 3925/5000. Dataloading: 0.0019 s/iter. Inference: 0.1819 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:03:18
+[12/08 04:58:42] d2.evaluation.evaluator INFO: Inference done 3953/5000. Dataloading: 0.0019 s/iter. Inference: 0.1819 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:03:12
+[12/08 04:58:47] d2.evaluation.evaluator INFO: Inference done 3981/5000. Dataloading: 0.0019 s/iter. Inference: 0.1819 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:03:07
+[12/08 04:58:52] d2.evaluation.evaluator INFO: Inference done 4009/5000. Dataloading: 0.0019 s/iter. Inference: 0.1819 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:03:02
+[12/08 04:58:58] d2.evaluation.evaluator INFO: Inference done 4037/5000. Dataloading: 0.0019 s/iter. Inference: 0.1819 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:02:57
+[12/08 04:59:03] d2.evaluation.evaluator INFO: Inference done 4065/5000. Dataloading: 0.0019 s/iter. Inference: 0.1819 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:02:52
+[12/08 04:59:08] d2.evaluation.evaluator INFO: Inference done 4093/5000. Dataloading: 0.0019 s/iter. Inference: 0.1819 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:02:47
+[12/08 04:59:13] d2.evaluation.evaluator INFO: Inference done 4121/5000. Dataloading: 0.0019 s/iter. Inference: 0.1819 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:02:42
+[12/08 04:59:18] d2.evaluation.evaluator INFO: Inference done 4149/5000. Dataloading: 0.0019 s/iter. Inference: 0.1819 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:02:36
+[12/08 04:59:23] d2.evaluation.evaluator INFO: Inference done 4177/5000. Dataloading: 0.0019 s/iter. Inference: 0.1819 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:02:31
+[12/08 04:59:29] d2.evaluation.evaluator INFO: Inference done 4205/5000. Dataloading: 0.0019 s/iter. Inference: 0.1819 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:02:26
+[12/08 04:59:34] d2.evaluation.evaluator INFO: Inference done 4233/5000. Dataloading: 0.0019 s/iter. Inference: 0.1819 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:02:21
+[12/08 04:59:39] d2.evaluation.evaluator INFO: Inference done 4261/5000. Dataloading: 0.0019 s/iter. Inference: 0.1820 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:02:16
+[12/08 04:59:44] d2.evaluation.evaluator INFO: Inference done 4289/5000. Dataloading: 0.0019 s/iter. Inference: 0.1820 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:02:11
+[12/08 04:59:49] d2.evaluation.evaluator INFO: Inference done 4317/5000. Dataloading: 0.0019 s/iter. Inference: 0.1820 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:02:05
+[12/08 04:59:54] d2.evaluation.evaluator INFO: Inference done 4345/5000. Dataloading: 0.0019 s/iter. Inference: 0.1820 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:02:00
+[12/08 05:00:00] d2.evaluation.evaluator INFO: Inference done 4373/5000. Dataloading: 0.0019 s/iter. Inference: 0.1820 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:01:55
+[12/08 05:00:05] d2.evaluation.evaluator INFO: Inference done 4401/5000. Dataloading: 0.0019 s/iter. Inference: 0.1820 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:01:50
+[12/08 05:00:10] d2.evaluation.evaluator INFO: Inference done 4429/5000. Dataloading: 0.0019 s/iter. Inference: 0.1820 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:01:45
+[12/08 05:00:15] d2.evaluation.evaluator INFO: Inference done 4457/5000. Dataloading: 0.0019 s/iter. Inference: 0.1820 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:01:40
+[12/08 05:00:20] d2.evaluation.evaluator INFO: Inference done 4485/5000. Dataloading: 0.0019 s/iter. Inference: 0.1820 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:01:34
+[12/08 05:00:25] d2.evaluation.evaluator INFO: Inference done 4513/5000. Dataloading: 0.0019 s/iter. Inference: 0.1820 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:01:29
+[12/08 05:00:31] d2.evaluation.evaluator INFO: Inference done 4541/5000. Dataloading: 0.0018 s/iter. Inference: 0.1820 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:01:24
+[12/08 05:00:36] d2.evaluation.evaluator INFO: Inference done 4569/5000. Dataloading: 0.0018 s/iter. Inference: 0.1820 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:01:19
+[12/08 05:00:41] d2.evaluation.evaluator INFO: Inference done 4597/5000. Dataloading: 0.0018 s/iter. Inference: 0.1820 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:01:14
+[12/08 05:00:46] d2.evaluation.evaluator INFO: Inference done 4625/5000. Dataloading: 0.0018 s/iter. Inference: 0.1820 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:01:09
+[12/08 05:00:51] d2.evaluation.evaluator INFO: Inference done 4653/5000. Dataloading: 0.0018 s/iter. Inference: 0.1820 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:01:03
+[12/08 05:00:56] d2.evaluation.evaluator INFO: Inference done 4681/5000. Dataloading: 0.0019 s/iter. Inference: 0.1820 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:00:58
+[12/08 05:01:01] d2.evaluation.evaluator INFO: Inference done 4708/5000. Dataloading: 0.0019 s/iter. Inference: 0.1820 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:00:53
+[12/08 05:01:07] d2.evaluation.evaluator INFO: Inference done 4736/5000. Dataloading: 0.0019 s/iter. Inference: 0.1820 s/iter. Eval: 0.0004 s/iter. Total: 0.1843 s/iter. ETA=0:00:48
+[12/08 05:01:12] d2.evaluation.evaluator INFO: Inference done 4764/5000. Dataloading: 0.0019 s/iter. Inference: 0.1820 s/iter. Eval: 0.0004 s/iter. Total: 0.1844 s/iter. ETA=0:00:43
+[12/08 05:01:17] d2.evaluation.evaluator INFO: Inference done 4792/5000. Dataloading: 0.0019 s/iter. Inference: 0.1820 s/iter. Eval: 0.0004 s/iter. Total: 0.1844 s/iter. ETA=0:00:38
+[12/08 05:01:22] d2.evaluation.evaluator INFO: Inference done 4820/5000. Dataloading: 0.0019 s/iter. Inference: 0.1820 s/iter. Eval: 0.0004 s/iter. Total: 0.1844 s/iter. ETA=0:00:33
+[12/08 05:01:27] d2.evaluation.evaluator INFO: Inference done 4848/5000. Dataloading: 0.0019 s/iter. Inference: 0.1820 s/iter. Eval: 0.0004 s/iter. Total: 0.1844 s/iter. ETA=0:00:28
+[12/08 05:01:32] d2.evaluation.evaluator INFO: Inference done 4876/5000. Dataloading: 0.0019 s/iter. Inference: 0.1820 s/iter. Eval: 0.0004 s/iter. Total: 0.1844 s/iter. ETA=0:00:22
+[12/08 05:01:38] d2.evaluation.evaluator INFO: Inference done 4904/5000. Dataloading: 0.0019 s/iter. Inference: 0.1820 s/iter. Eval: 0.0004 s/iter. Total: 0.1844 s/iter. ETA=0:00:17
+[12/08 05:01:43] d2.evaluation.evaluator INFO: Inference done 4932/5000. Dataloading: 0.0019 s/iter. Inference: 0.1820 s/iter. Eval: 0.0004 s/iter. Total: 0.1844 s/iter. ETA=0:00:12
+[12/08 05:01:48] d2.evaluation.evaluator INFO: Inference done 4960/5000. Dataloading: 0.0019 s/iter. Inference: 0.1820 s/iter. Eval: 0.0004 s/iter. Total: 0.1844 s/iter. ETA=0:00:07
+[12/08 05:01:53] d2.evaluation.evaluator INFO: Inference done 4988/5000. Dataloading: 0.0019 s/iter. Inference: 0.1820 s/iter. Eval: 0.0004 s/iter. Total: 0.1844 s/iter. ETA=0:00:02
+[12/08 05:01:55] d2.evaluation.evaluator INFO: Total inference time: 0:15:20.917313 (0.184368 s / iter per device, on 1 devices)
+[12/08 05:01:55] d2.evaluation.evaluator INFO: Total inference pure compute time: 0:15:09 (0.181987 s / iter per device, on 1 devices)
+[12/08 05:01:57] d2.evaluation.coco_evaluation INFO: Preparing results for COCO format ...
+[12/08 05:01:58] d2.evaluation.coco_evaluation INFO: Saving results to output/yolof/CSP_D_53_DC5_9x/inference/coco_instances_results.json
+[12/08 05:01:59] d2.evaluation.coco_evaluation INFO: Evaluating predictions with unofficial COCO API...
+[12/08 05:02:01] d2.evaluation.fast_eval_api INFO: Evaluate annotation type *bbox*
+[12/08 05:02:14] d2.evaluation.fast_eval_api INFO: COCOeval_opt.evaluate() finished in 13.15 seconds.
+[12/08 05:02:14] d2.evaluation.fast_eval_api INFO: Accumulating evaluation results...
+[12/08 05:02:16] d2.evaluation.fast_eval_api INFO: COCOeval_opt.accumulate() finished in 1.71 seconds.
+[12/08 05:02:16] d2.evaluation.coco_evaluation INFO: Evaluation results for bbox: 
+|   AP   |  AP50  |  AP75  |  APs   |  APm   |  APl   |
+|:------:|:------:|:------:|:------:|:------:|:------:|
+| 42.795 | 62.002 | 45.989 | 22.574 | 46.853 | 59.280 |
+[12/08 05:02:16] d2.evaluation.coco_evaluation INFO: Per-category bbox AP: 
+| category      | AP     | category     | AP     | category       | AP     |
+|:--------------|:-------|:-------------|:-------|:---------------|:-------|
+| person        | 52.861 | bicycle      | 33.349 | car            | 41.280 |
+| motorcycle    | 46.809 | airplane     | 69.392 | bus            | 68.596 |
+| train         | 71.070 | truck        | 39.295 | boat           | 28.096 |
+| traffic light | 25.537 | fire hydrant | 68.869 | stop sign      | 64.737 |
+| parking meter | 47.787 | bench        | 26.574 | bird           | 36.228 |
+| cat           | 71.964 | dog          | 68.572 | horse          | 59.914 |
+| sheep         | 52.960 | cow          | 57.828 | elephant       | 68.552 |
+| bear          | 75.565 | zebra        | 68.628 | giraffe        | 70.075 |
+| backpack      | 14.964 | umbrella     | 42.131 | handbag        | 14.731 |
+| tie           | 33.653 | suitcase     | 41.651 | frisbee        | 65.122 |
+| skis          | 25.073 | snowboard    | 34.980 | sports ball    | 42.144 |
+| kite          | 44.891 | baseball bat | 32.186 | baseball glove | 36.359 |
+| skateboard    | 57.532 | surfboard    | 39.859 | tennis racket  | 52.626 |
+| bottle        | 36.351 | wine glass   | 34.589 | cup            | 42.049 |
+| fork          | 33.265 | knife        | 15.732 | spoon          | 17.428 |
+| bowl          | 40.086 | banana       | 23.335 | apple          | 14.310 |
+| sandwich      | 35.560 | orange       | 30.393 | broccoli       | 22.493 |
+| carrot        | 17.573 | hot dog      | 36.194 | pizza          | 51.123 |
+| donut         | 49.897 | cake         | 37.767 | chair          | 29.930 |
+| couch         | 49.362 | potted plant | 26.521 | bed            | 50.257 |
+| dining table  | 31.113 | toilet       | 64.309 | tv             | 58.932 |
+| laptop        | 64.812 | mouse        | 59.754 | remote         | 28.498 |
+| keyboard      | 54.020 | cell phone   | 35.414 | microwave      | 58.628 |
+| oven          | 37.917 | toaster      | 33.954 | sink           | 38.958 |
+| refrigerator  | 59.240 | book         | 12.203 | clock          | 50.144 |
+| vase          | 35.154 | scissors     | 33.656 | teddy bear     | 48.034 |
+| hair drier    | 7.578  | toothbrush   | 24.657 |                |        |
+[12/08 05:02:19] d2.engine.defaults INFO: Evaluation results for test in csv format:
+[12/08 05:02:19] d2.evaluation.testing INFO: copypaste: Task: bbox
+[12/08 05:02:19] d2.evaluation.testing INFO: copypaste: AP,AP50,AP75,APs,APm,APl
+[12/08 05:02:19] d2.evaluation.testing INFO: copypaste: 42.7954,62.0017,45.9894,22.5736,46.8531,59.2800
